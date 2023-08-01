@@ -1,64 +1,181 @@
-
 .home-image-2 {
-    margin: auto;
-    position: static;
-    opacity: 0.5;
-    width: 80%;
-    height: 80%;
-    object-fit: cover;
-    border-radius: 40px;
-  }
-  
-  
-  .page-title{
-    position: static;
-    display: flex;
+  margin: auto;
+  position: static;
+  opacity: 0.5;
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
+  border-radius: 40px;
+}
+
+
+.page-title {
+  position: static;
+  display: flex;
+}
+
+.page-header {
+  display: flex;
+  margin: auto;
+
+}
+
+.pg-1 {
+  width: 80%;
+  height: 80%;
+  margin: auto;
+  padding: 80px;
+}
+
+.pg-2 {
+  width: 100%;
+  margin: auto;
+  padding: 80px;
+}
+
+.header {
+  font-family: 'Lexend Peta', sans-serif;
+  width: 150%;
+  height: 100%;
+  font-size: 120px;
+  font-weight: 500;
+  margin-top: 100PX;
+  background-image: linear-gradient(to right, #ffffff 35%, #d4d4d4 70%, #6C6A69 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.header-1 {
+  font-family: 'Lexend Peta', sans-serif;
+  position: static;
+  margin-top: 180px;
+  width: 130%;
+  height: 280px;
+  font-size: 120px;
+  font-weight: 500;
+  background-image: linear-gradient(to right, #ffffff 35%, #d4d4d4 70%, #6C6A69 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Mobile Responsive Styles for 768px */
+@media screen and (max-width: 768px) {
+
+  .page-header {
+    display: block;
   }
 
-  .page-header{
-    display: flex;
-    margin: auto;
-    
+  .page-title {
+    display: block;
+    margin-top: 150px;
   }
 
-  .pg-1{
-    width: 80%;
-    height: 80%;
-    margin: auto;
-    padding: 80px;
-  }
 
-  .pg-2{
+
+  .home-image-2 {
     width: 100%;
-    margin: auto;
-    padding: 80px;
-  }
-  
-  .header{
-    font-family: 'Lexend Peta', sans-serif;
-    width: 150%;
-    height:100%;
-    font-size: 120px;
-    font-weight: 500;
-    margin-top: 100PX;
-    background-image: linear-gradient(to right,  #ffffff 35%, #d4d4d4 70%, #6C6A69 90%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
+    height: auto;
+    border-radius: 0;
   }
 
-  .header-1{
-    font-family: 'Lexend Peta', sans-serif;
-    position: static;
-    margin-top: 180px;
-    width: 130%;
-    height: 280px;
-    font-size: 120px;
-    font-weight: 500;
-    background-image: linear-gradient(to right,  #ffffff 35%, #d4d4d4 70%, #6C6A69 90%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
+  .header,
+  .header-1 {
+    font-size: 48px;
+    width: 100%;
+    height: 100%;
+    margin-top: 40px;
   }
+
+  .pg-1,
+  .pg-2 {
+    padding: 40px;
+  }
+}
+
+/* Mobile Responsive Styles for 576px */
+@media screen and (max-width: 576px) {
+
+  .header,
+  .header-1 {
+    font-size: 32px;
+    /* Reduce font size further for smaller screens */
+    margin-top: 20px;
+    /* Further reduce top margin for better spacing */
+  }
+
+  .pg-1,
+  .pg-2 {
+    padding: 20px;
+    /* Further reduce padding for better spacing */
+  }
+}
+
+/* Mobile Responsive Styles for 375px */
+@media screen and (max-width: 375px) {
+
+  .page-header {
+    display: block;
+  }
+
+  .page-title {
+    display: block;
+    margin-top: 150px;
+  }
+
+  .home-image-2 {
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+  }
+
+  .header,
+  .header-1 {
+    font-size: 24px;
+    /* Reduce font size further for iPhone SE and similar screens */
+    margin-top: 10px;
+    /* Further reduce top margin for better spacing */
+  }
+
+  .pg-1,
+  .pg-2 {
+    padding: 15px;
+    /* Further reduce padding for better spacing */
+  }
+}
+
+/* Mobile Responsive Styles for 320px */
+@media screen and (max-width: 320px) {
+
+  .page-header {
+    display: block;
+  }
+
+  .page-title {
+    display: block;
+    margin-top: 150px;
+  }
+
+  .home-image-2 {
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+  }
+
+  .header,
+  .header-1 {
+    font-size: 20px;
+    /* Further reduce font size for smaller iPhone screens */
+    margin-top: 5px;
+    /* Further reduce top margin for better spacing */
+  }
+
+  .pg-1,
+  .pg-2 {
+    padding: 10px;
+    /* Further reduce padding for better spacing */
+  }
+}

@@ -32,7 +32,7 @@ const Navbar = () => {
         <span className="navbar-toggler-icon"></span>
       </button>
 
-      <div className="collapse navbar-collapse" id="navbarNav">
+      <div className="navbar" id="navbarNav">
         <ul className="navbar-nav m-auto pe-5" id="navbarList">
           <li
             className={`nav-item ${activeLink === 0 ? "active" : ""}`}

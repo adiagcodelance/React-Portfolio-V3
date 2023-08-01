@@ -1,61 +1,115 @@
 /* Navbar.css */
 
 #navbarlogo {
-  background-image: linear-gradient(to right,  #ffffff 35%, #d4d4d4 70%, #6C6A69 90%);
+  background-image: linear-gradient(to right, #ffffff 35%, #d4d4d4 70%, #6C6A69 90%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
   height: 200px;
-  display: flex; /* Add display flex to enable flexbox properties */
-  justify-content: center; /* Center the content horizontally */
+  display: flex;
+  /* Add display flex to enable flexbox properties */
+  justify-content: center;
+  /* Center the content horizontally */
   align-items: center;
-  }
-  
-  .brand{
-    width: 70%;
-    font-size: 50px;
-    white-space: normal;
-    word-wrap: break-word;
-  }
-  .nav-item a {
-    text-align: center;
-    border-radius: 40px;
-    font-size: 25px;
-    background-image: linear-gradient(to right, #ffffff 35%, #d4d4d4 70%, #6C6A69 90%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-  }
-  
-  .nav-item a.active {
-    color: #ffffff;
-    -webkit-text-fill-color: unset;
-  }
-  
-  .underline {
-    height: 1px;
-    width: 0;
-    background-color: #ffffff;
-    transition: width 0.3s;
-  }
-  
-  .underline.show {
-    transition-delay: 0.1s;
-  }
-  
-  /* To make the underline appear when the link is hovered or active */
-  .nav-item a:hover ~ .underline,
-  .nav-item a.active ~ .underline {
-    width: 100%;
-  }
-  
-  #navbar {
-    position: absolute;
-  }
+}
+
+.brand {
+  width: 70%;
+  font-size: 50px;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.nav-item a {
+  text-align: center;
+  border-radius: 40px;
+  font-size: 25px;
+  background-image: linear-gradient(to right, #ffffff 35%, #d4d4d4 70%, #6C6A69 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.nav-item a.active {
+  color: #ffffff;
+  -webkit-text-fill-color: unset;
+}
+
+.underline {
+  height: 1px;
+  width: 0;
+  background-color: #ffffff;
+  transition: width 0.3s;
+}
+
+.underline.show {
+  transition-delay: 0.1s;
+}
+
+/* To make the underline appear when the link is hovered or active */
+.nav-item a:hover~.underline,
+.nav-item a.active~.underline {
+  width: 100%;
+}
+
+#navbar {
+  position: absolute;
+}
 
 .nav-item {
-    position: relative;
-    padding-right: 20px; /* Increase the padding to add more space */
+  position: relative;
+
+  padding-right: 20px;
+  /* Increase the padding to add more space */
+}
+
+@media screen and (max-width: 575px) {
+
+  /* iPhone 11 Pro and smaller */
+  #navbarlogo {
+    height: 80px;
+    /* Adjust height for smaller iPhone screens */
   }
+
+  .brand {
+    font-size: 20px;
+    /* Reduce font size for smaller screens */
+  }
+
+  .nav-item a {
+    font-size: 20px;
+    /* Reduce font size for smaller screens */
+  }
+
+  .nav-item {
+    padding-right: 5px;
+    /* Reduce the padding for better spacing on smaller screens */
+  }
+
+}
+
+@media screen and (max-width: 375px) {
+
+  /* iPhone 11 Pro and smaller */
+  #navbarlogo {
+    height: 80px;
+    /* Adjust height for smaller iPhone screens */
+  }
+
+  .brand {
+    font-size: 20px;
+    /* Reduce font size for smaller screens */
+  }
+
+  .nav-item a {
+    font-size: 18px;
+    /* Reduce font size for smaller screens */
+  }
+
+  .nav-item {
+    padding-right: 5px;
+    /* Reduce the padding for better spacing on smaller screens */
+  }
+}
