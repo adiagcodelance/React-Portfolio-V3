@@ -1,0 +1,64 @@
+
+.home-image-2 {
+    margin: auto;
+    position: static;
+    opacity: 0.5;
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+    border-radius: 40px;
+  }
+  
+  
+  .page-title{
+    position: static;
+    display: flex;
+  }
+
+  .page-header{
+    display: flex;
+    margin: auto;
+    
+  }
+
+  .pg-1{
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    padding: 80px;
+  }
+
+  .pg-2{
+    width: 100%;
+    margin: auto;
+    padding: 80px;
+  }
+  
+  .header{
+    font-family: 'Lexend Peta', sans-serif;
+    width: 150%;
+    height:100%;
+    font-size: 120px;
+    font-weight: 500;
+    margin-top: 100PX;
+    background-image: linear-gradient(to right,  #ffffff 35%, #d4d4d4 70%, #6C6A69 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .header-1{
+    font-family: 'Lexend Peta', sans-serif;
+    position: static;
+    margin-top: 180px;
+    width: 130%;
+    height: 280px;
+    font-size: 120px;
+    font-weight: 500;
+    background-image: linear-gradient(to right,  #ffffff 35%, #d4d4d4 70%, #6C6A69 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }

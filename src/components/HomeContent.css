@@ -1,0 +1,74 @@
+.main-container {
+  display: flex;
+  margin: auto;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+.stack-container {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  padding: 20px;
+  padding-left: 80px;
+}
+
+.column-one {
+  margin: auto;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  padding-left: 80px;
+}
+
+.sub-header {
+  font-family: 'Lexend Peta', sans-serif;
+  position: static;
+  width: 100%;
+  font-size: 50px;
+  font-weight: 500;
+  background-image: linear-gradient(to right, #ffffff 35%, #d4d4d4 70%, #6C6A69 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.card-body {
+  width: 700px;
+}
+
+.card-body p {
+  background-image: linear-gradient(to right, #ffffff 35%, #d4d4d4 70%, #6C6A69 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-size: 20px;
+}
+
+.stack-item {
+  width: 90px;
+  height: 80px;
+}
+
+.stack-table {
+  width: 100%;
+  height: 100%;
+}
+
+.stack-name-item {
+  background-image: linear-gradient(to right, #ffffff 35%, #d4d4d4 70%, #6C6A69 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  text-align: center;
+}
+
+.item {
+  width: 150px;
+  height: 150px;
+  border-radius: 100px;
+}
