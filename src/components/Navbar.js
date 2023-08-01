@@ -62,12 +62,14 @@ const Navbar = () => {
             </a>
             <div className="underline"></div>
           </li>
+          {/** 
           <li className="nav-item" id="navitem">
             <a className="nav-link" href="/reviews">
               Reviews
             </a>
             <div className="underline"></div>
           </li>
+*/}
         </ul>
       </div>
     </nav>
