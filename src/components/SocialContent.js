@@ -8,12 +8,12 @@ const SocialContent = () => {
     <div className="social-container">
       <div className="social-column-one">
         <motion.div
-          animate={{ opacity: 1, width: 500 }}
+          animate={{ opacity: 1, width: "100%" }}
           transition={{ delay: 0.5 }}
           initial={{ opacity: 0 }}
         ></motion.div>
         <motion.div
-          animate={{ opacity: 1, width: 500 }}
+          animate={{ opacity: 1, width: "100%" }}
           transition={{ delay: 1 }}
           initial={{ opacity: 0 }}
         >
@@ -31,7 +31,7 @@ const SocialContent = () => {
       <div className="socials">
         <div className="social-table">
           <motion.div
-            animate={{ opacity: 1, width: 500 }}
+            animate={{ opacity: 1, width: "100%" }}
             transition={{ delay: 1.5 }}
             initial={{ opacity: 0 }}
           >
