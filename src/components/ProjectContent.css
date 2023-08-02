@@ -33,10 +33,8 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  height: 100px;
-  width: 400px;
+  width: fit-content;
   font-size: 40px;
-
 }
 
 .project-item {
@@ -46,6 +44,7 @@
   -webkit-text-fill-color: transparent;
   color: transparent;
   font-size: 20px;
+  padding-left: 20px;
 }
 
 
@@ -63,7 +62,7 @@
 }
 
 .project-card-body {
-  width: 700px;
+  width: 100%;
 }
 
 .project-card-body p {
@@ -109,7 +108,7 @@
   .project-sub-header {
     font-size: 28px;
     margin: auto;
-    padding: 50px;
+
     width: 100%;
     /* Further reduce font size for better display on smaller screens */
   }
@@ -127,6 +126,7 @@
 
   .project-container {
     display: block;
+    margin: auto;
   }
 
   .project-card-body {
@@ -136,12 +136,15 @@
   .project-column-one,
   .projects {
     width: 100%;
-    padding-left: 10px;
+    margin: auto;
     /* Further reduce padding-left for better display on smaller screens */
   }
 
   .project-table-header {
     font-size: 20px;
+    height: 100%;
+    width: 100%;
+    display: flex;
     /* Further reduce font size for better display on smaller screens */
   }
 
@@ -151,14 +154,15 @@
 
   .project-item {
     font-size: 14px;
+    padding-left: 20px;
+
     /* Further reduce font size for better display on smaller screens */
   }
 
   .project-sub-header {
     font-size: 28px;
     margin: auto;
-    padding: 50px;
-    width: 100%;
+    width: 90%;
     /* Further reduce font size for better display on smaller screens */
   }
 

@@ -8,12 +8,12 @@ const ProjectContent = () => {
     <div className="project-container">
       <div className="project-column-one">
         <motion.div
-          animate={{ opacity: 1, width: 500 }}
+          animate={{ opacity: 1, width: "100%" }}
           transition={{ delay: 0.5 }}
           initial={{ opacity: 0 }}
         ></motion.div>
         <motion.div
-          animate={{ opacity: 1, width: 500 }}
+          animate={{ opacity: 1, width: "100%" }}
           transition={{ delay: 1 }}
           initial={{ opacity: 0 }}
         >
@@ -33,7 +33,7 @@ const ProjectContent = () => {
       <div className="projects">
         <div className="project-table">
           <motion.div
-            animate={{ opacity: 1, width: 500 }}
+            animate={{ opacity: 1, width: "100%" }}
             transition={{ delay: 1.5 }}
             initial={{ opacity: 0 }}
           >
@@ -42,32 +42,21 @@ const ProjectContent = () => {
               <thead>
                 <tr>
                   <th className="project-table-header">Academic</th>
-                  <th className="project-table-header">Professional</th>
-                  <th className="project-table-header">Personal</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
+
                   {/* Academic project cells */}
                   <td className="project-item">Project 1</td>
                   <td className="project-item">Project A</td>
                 </tr>
                 <tr>
-                  {/* Description cells for academic projects */}
-                  <td className="project-item">Description of Project 1</td>
-                  <td className="project-item">Description of Project A</td>
+                  <th className="project-table-header">Professional</th>
+                  <tr></tr>
                 </tr>
                 <tr>
-                  {/* Add more rows for other projects if needed */}
-                  <td className="project-item">Project 2</td>
-                  <td className="project-item">Project B</td>
+                  <th className="project-table-header">Personal</th>
+                  <tr></tr>
                 </tr>
-                <tr>
-                  {/* Description cells for professional projects */}
-                  <td className="project-item">Description of Project 2</td>
-                  <td className="project-item">Description of Project B</td>
-                </tr>
-              </tbody>
+              </thead>
+              <tbody></tbody>
             </table>
           </motion.div>
         </div>

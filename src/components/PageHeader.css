@@ -10,8 +10,8 @@
 
 
 .page-title {
-  position: static;
   display: flex;
+  width: 100%;
 }
 
 .page-header {
@@ -70,8 +70,10 @@
   }
 
   .page-title {
-    display: block;
+    display: flex;
     margin-top: 150px;
+    width: 100%;
+    flex-wrap: wrap;
   }
 
 
@@ -101,6 +103,7 @@
 
   .header,
   .header-1 {
+    width: 100%;
     font-size: 32px;
     /* Reduce font size further for smaller screens */
     margin-top: 20px;
@@ -122,9 +125,12 @@
   }
 
   .page-title {
-    display: block;
+    display: flex;
     margin-top: 150px;
+    width: 100%;
+    flex-wrap: wrap;
   }
+
 
   .home-image-2 {
     width: 100%;
@@ -155,8 +161,10 @@
   }
 
   .page-title {
-    display: block;
+    display: flex;
     margin-top: 150px;
+    width: 100%;
+    flex-wrap: wrap;
   }
 
   .home-image-2 {
@@ -167,6 +175,7 @@
 
   .header,
   .header-1 {
+    width: 100%;
     font-size: 20px;
     /* Further reduce font size for smaller iPhone screens */
     margin-top: 5px;
