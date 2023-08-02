@@ -75,7 +75,7 @@
 
 
 /* Mobile Responsive Styles for 576px */
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
 
   .project-container {
     display: block;
@@ -103,7 +103,7 @@
 
   .project-table {
     width: 100%;
-    padding: 20px;
+    padding-left: 20px;
   }
 
   .project-item {
