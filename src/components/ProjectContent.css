@@ -4,6 +4,7 @@
   border-radius: 10px;
   width: 100%;
   height: 100%;
+  padding: 80px;
 }
 
 .project-column-one {
@@ -11,7 +12,6 @@
   padding: 20px;
   width: 100%;
   height: 100%;
-  padding-left: 80px;
 }
 
 .projects {
@@ -19,7 +19,6 @@
   height: 100%;
   margin: auto;
   padding: 20px;
-  padding-left: 80px;
 }
 
 .project-table {
@@ -74,52 +73,6 @@
   font-size: 20px;
 }
 
-/* Mobile Responsive Styles for 768px */
-@media screen and (max-width: 768px) {
-
-  .project-container {
-    display: block;
-  }
-
-  .project-card-body {
-    width: 100%;
-  }
-
-  .project-column-one,
-  .projects {
-    padding-left: 20px;
-    /* Reduce padding-left for better display on smaller screens */
-  }
-
-  .project-table-header {
-    font-size: 24px;
-    /* Further reduce font size for better display on smaller screens */
-  }
-
-  .project-item {
-    font-size: 16px;
-    /* Further reduce font size for better display on smaller screens */
-  }
-
-  .project-table {
-    width: 100%;
-  }
-
-  .project-sub-header {
-    font-size: 28px;
-    margin: auto;
-
-    width: 100%;
-    /* Further reduce font size for better display on smaller screens */
-  }
-
-  .project-card-body p {
-    font-size: 20px;
-    margin: auto;
-    padding: 50px;
-    /* Further reduce font size for better display on smaller screens */
-  }
-}
 
 /* Mobile Responsive Styles for 576px */
 @media screen and (max-width: 576px) {
@@ -150,6 +103,7 @@
 
   .project-table {
     width: 100%;
+    padding: 20px;
   }
 
   .project-item {
@@ -163,13 +117,14 @@
     font-size: 28px;
     margin: auto;
     width: 90%;
+    padding: 20px;
     /* Further reduce font size for better display on smaller screens */
   }
 
   .project-card-body p {
     font-size: 18px;
     margin: auto;
-    padding: 50px;
+    padding: 20px;
     /* Further reduce font size for better display on smaller screens */
   }
 }

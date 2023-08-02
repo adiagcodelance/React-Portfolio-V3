@@ -1,7 +1,7 @@
 .social-container {
   width: 100%;
   margin: auto;
-  padding: 20px;
+  padding: 80px;
   display: flex;
 }
 
@@ -85,7 +85,7 @@
   }
 
   .social-column-one {
-    padding-left: 10px;
+    padding: 20px;
     /* Further adjust padding for smaller screens */
   }
 
@@ -95,17 +95,17 @@
   }
 
   .social-item {
-    width: 90px;
+    width: 80px;
     /* Further reduce width for smaller screens */
-    height: 70px;
+    height: 50px;
     /* Further reduce height for smaller screens */
   }
 
   .social-item:hover,
   .social-table tr {
-    width: 120px;
+    width: 100px;
     /* Further reduce width for smaller screens */
-    height: 90px;
+    height: 60px;
     /* Further reduce height for smaller screens */
   }
 

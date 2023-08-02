@@ -4,20 +4,18 @@
   border-radius: 10px;
   width: 100%;
   height: 100%;
+  padding: 80px;
 }
 
 .stack-container {
   width: 100%;
-  height: 100%;
   margin: auto;
-  padding: 20px;
 }
 
 .column-one {
   margin: auto;
   padding: 20px;
   width: 100%;
-  padding-left: 80px;
 }
 
 .sub-header {
@@ -53,9 +51,7 @@
 
 .stack-table {
   width: 100%;
-  height: 100%;
   margin: auto;
-  padding: 80px;
 }
 
 .stack-name-item {
@@ -78,18 +74,20 @@
 
   .main-container {
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
     flex-wrap: wrap;
   }
 
   .column-one {
     width: 100%;
-    padding-left: 10px;
+    padding-left: 20px;
     /* Further adjust padding for smaller screens */
   }
 
   .sub-header {
     font-size: 32px;
+    padding: 20px;
     /* Further reduce font size for smaller screens */
   }
 
@@ -98,14 +96,18 @@
     /* Further reduce font size for smaller screens */
   }
 
+  .stack-container {
+    margin: auto;
+  }
+
   .stack-table {
     width: 100%;
     height: 100%;
     margin: auto;
-    padding: 40px;
   }
 
-  .stack-item {
+  .stack-item,
+  .stack-name-item {
     width: 50px;
     /* Further reduce width for smaller screens */
     height: 40px;
