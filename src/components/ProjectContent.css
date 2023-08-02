@@ -75,7 +75,7 @@
 
 
 /* Mobile Responsive Styles for 576px */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 320px) {
 
   .project-container {
     display: block;
