@@ -9,7 +9,7 @@ const HomeContent = () => {
     <div className="main-container">
       <div className="column-one">
         <motion.div
-          animate={{ opacity: 1, width: 500 }}
+          animate={{ opacity: 1, width: "100%" }}
           transition={{ delay: 1 }}
           initial={{ opacity: 0 }}
         >
@@ -17,7 +17,7 @@ const HomeContent = () => {
         </motion.div>
 
         <motion.div
-          animate={{ opacity: 1 }}
+          animate={{ opacity: 1, width: "100%" }}
           transition={{ delay: 1.5 }}
           initial={{ opacity: 0 }}
         >
@@ -76,7 +76,7 @@ const HomeContent = () => {
         </table>
         <div className="stack-table">
           <motion.div
-            animate={{ opacity: 1 }}
+            animate={{ opacity: 1, width: "100%" }}
             transition={{ delay: 1.5 }}
             initial={{ opacity: 0 }}
           >
