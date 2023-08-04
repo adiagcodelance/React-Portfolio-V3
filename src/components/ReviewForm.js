@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import StarRating from "./StarRating";
+import "./ReviewForm.css";
 
 const ReviewForm = ({ onReviewSubmit }) => {
   const [rating, setRating] = useState(0);
@@ -27,7 +28,7 @@ const ReviewForm = ({ onReviewSubmit }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label>Rating:</label>
+        <label className="review-sub-heading">Rating:</label>
         <StarRating rating={rating} onRatingChange={handleRatingChange} />
       </div>
       <div>

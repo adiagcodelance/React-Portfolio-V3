@@ -1,0 +1,14 @@
+
+
+.review-sub-heading{
+    font-family: 'Lexend Peta', sans-serif;
+    position: static;
+    width: 100%;
+    font-size: 50px;
+    font-weight: 500;
+    background-image: linear-gradient(to right, #ffffff 35%, #d4d4d4 70%, #6C6A69 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
