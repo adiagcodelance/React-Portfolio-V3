@@ -73,13 +73,12 @@
   font-size: 20px;
 }
 
-
-/* Mobile Responsive Styles for 576px */
 @media screen and (max-width: 890px) {
 
   .project-container {
     display: block;
     margin: auto;
+    padding: 5px;
   }
 
   .project-card-body {
@@ -134,114 +133,7 @@
   .project-container {
     display: block;
     margin: auto;
-  }
-
-  .project-card-body {
-    width: 100%;
-  }
-
-  .project-column-one,
-  .projects {
-    width: 100%;
-    margin: auto;
-    /* Further reduce padding-left for better display on smaller screens */
-  }
-
-  .project-table-header {
-    font-size: 20px;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    /* Further reduce font size for better display on smaller screens */
-  }
-
-  .project-table {
-    width: 100%;
-    padding-left: 20px;
-  }
-
-  .project-item {
-    font-size: 14px;
-    padding-left: 20px;
-
-    /* Further reduce font size for better display on smaller screens */
-  }
-
-  .project-sub-header {
-    font-size: 28px;
-    margin: auto;
-    width: 90%;
-    padding: 20px;
-    /* Further reduce font size for better display on smaller screens */
-  }
-
-  .project-card-body p {
-    font-size: 18px;
-    margin: auto;
-    padding: 20px;
-    /* Further reduce font size for better display on smaller screens */
-  }
-}
-
-@media screen and (max-width: 890px) {
-
-  .project-container {
-    display: block;
-    margin: auto;
-  }
-
-  .project-card-body {
-    width: 100%;
-  }
-
-  .project-column-one,
-  .projects {
-    width: 100%;
-    margin: auto;
-    /* Further reduce padding-left for better display on smaller screens */
-  }
-
-  .project-table-header {
-    font-size: 20px;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    /* Further reduce font size for better display on smaller screens */
-  }
-
-  .project-table {
-    width: 100%;
-    padding-left: 20px;
-  }
-
-  .project-item {
-    font-size: 14px;
-    padding-left: 20px;
-
-    /* Further reduce font size for better display on smaller screens */
-  }
-
-  .project-sub-header {
-    font-size: 28px;
-    margin: auto;
-    width: 90%;
-    padding: 20px;
-    /* Further reduce font size for better display on smaller screens */
-  }
-
-  .project-card-body p {
-    font-size: 18px;
-    margin: auto;
-    padding: 20px;
-    /* Further reduce font size for better display on smaller screens */
-  }
-}
-
-@media screen and (max-width: 314px) {
-
-  .project-container {
-    display: block;
-    margin: auto;
+    padding: 5px;
   }
 
   .project-card-body {
