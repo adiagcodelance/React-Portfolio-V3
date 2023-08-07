@@ -43,7 +43,7 @@ const SocialContent = () => {
                     <img
                       className="social-item"
                       src={process.env.PUBLIC_URL + "./Type=Default (1).png"}
-                      alt="css"
+                      alt="linkedin"
                     ></img>
                   </a>
                 </td>
@@ -52,7 +52,7 @@ const SocialContent = () => {
                     <img
                       className="social-item"
                       src={process.env.PUBLIC_URL + "./Type=Default (2).png"}
-                      alt="css"
+                      alt="gmail"
                     ></img>
                   </a>
                 </td>
@@ -69,7 +69,7 @@ const SocialContent = () => {
                   <img
                     className="social-item"
                     src={process.env.PUBLIC_URL + "./twitter.png"}
-                    alt="css"
+                    alt="twitter"
                   ></img>
                 </td>
                 <td>
@@ -77,7 +77,7 @@ const SocialContent = () => {
                     <img
                       className="social-item"
                       src={process.env.PUBLIC_URL + "./Type=Flat (3).png"}
-                      alt="css"
+                      alt="instagram"
                     ></img>
                   </a>
                 </td>
@@ -86,7 +86,7 @@ const SocialContent = () => {
                     <img
                       className="social-item"
                       src={process.env.PUBLIC_URL + "./Type=Flat (4).png"}
-                      alt="css"
+                      alt="facebook"
                     ></img>
                   </a>
                 </td>

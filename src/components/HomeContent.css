@@ -24,7 +24,7 @@
   width: 100%;
   font-size: 50px;
   font-weight: 500;
-  background-image: linear-gradient(to right, #ffffff 35%, #d4d4d4 70%, #6C6A69 90%);
+  background-image: linear-gradient(to right, #ffffff 60%, #d4d4d4 80%, #6C6A69 90%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -36,7 +36,7 @@
 }
 
 .card-body p {
-  background-image: linear-gradient(to right, #ffffff 35%, #d4d4d4 70%, #6C6A69 90%);
+  background-image: linear-gradient(to right, #ffffff 60%, #d4d4d4 80%, #6C6A69 90%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -55,7 +55,7 @@
 }
 
 .stack-name-item {
-  background-image: linear-gradient(to right, #ffffff 35%, #d4d4d4 70%, #6C6A69 90%);
+  background-image: linear-gradient(to right, #ffffff 60%, #d4d4d4 80%, #6C6A69 90%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
