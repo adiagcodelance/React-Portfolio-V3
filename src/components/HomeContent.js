@@ -23,7 +23,7 @@ const HomeContent = () => {
         >
           <div className="card-body">
             <p>
-              Welcome to my portfolio webpage! I'm Aditya Agrawal, a Computer
+              Welcome to my portfolio webpage! my name is Aditya Agrawal, a Computer
               Scientist with an interest in web development/design. I thrive in
               creative projects and love challenges in fast-paced environments.
               This website showcases my journey through four iterations, each
@@ -34,28 +34,27 @@ const HomeContent = () => {
 
             <p>
               Born and raised in Dubai, UAE, I'm adept at adapting to
-              multicultural environments. Love popular TV shows, especially
+              multicultural environments. I Love popular TV shows, especially
               sci-fi and fantasy genres. Passionate about weight training and
-              power lifting. Occasional gamer; drawn to captivating stories and
+              power lifting and the occasional gamer; drawn to captivating stories and
               stunning graphics in games like Horizon Dawn, Last of Us, and
               Assassins Creed.
             </p>
           </div>
 
-          <label className="sub-header">Current</label>
+          <label className="sub-header">Currently</label>
           <div className="card-body">
             <p>
-              I work as an IT professional at Sunly in Charlottetown, PEI, a
+              I work as a Data Analyst/IT Assistant at Sunly in Charlottetown, PEI, a
               solar company providing Solar solutions to residential and
               commercial properties. My role involves handling various tasks
-              like report creation, data uploads, and mass updates/deletions
+              like report creation, data uploads, mass updates/deletions
               using Salesforce, IT assistance, Form, button, and process
-              creation in the CRM, and workflow automation's using Zapier and
+              creation in Salesforce, and workflow automation's using Zapier and
               Salesforce flows. Additionally, I am responsible for website
-              maintenance and development involving improving current design by
-              injecting code blocks using the Squarespace design UI. I am also
-              Salesforce data administration certified and understand key
-              features involved in pipeline management.
+              maintenance and development involving supporting and expanding on existing design by
+              injecting code blocks using the Squarespace design UI. I am currently working on developing my algorithm and problem solving skills, learning
+              new and interesting features in web design such javascript graphic design to further enhance websites, and becomiogn Salesforce Admisistrator Certified.
             </p>
           </div>
         </motion.div>
@@ -94,21 +93,21 @@ const HomeContent = () => {
                     <img
                       className="stack-item"
                       src={process.env.PUBLIC_URL + "./vs.png"}
-                      alt="css"
+                      alt="vs"
                     ></img>
                   </td>
                   <td>
                     <img
                       className="stack-item"
                       src={process.env.PUBLIC_URL + "./firebase.png"}
-                      alt="css"
+                      alt="firebase"
                     ></img>
                   </td>
                   <td>
                     <img
                       className="stack-item"
                       src={process.env.PUBLIC_URL + "./mysql.png"}
-                      alt="css"
+                      alt="mysql"
                     ></img>
                   </td>
                   <td>
@@ -122,14 +121,14 @@ const HomeContent = () => {
                     <img
                       className="stack-item"
                       src={process.env.PUBLIC_URL + "./postman.png"}
-                      alt="css"
+                      alt="postman"
                     ></img>
                   </td>
                   <td>
                     <img
                       className="stack-item"
                       src={process.env.PUBLIC_URL + "./reactjs.png"}
-                      alt="css"
+                      alt="reactjs"
                     ></img>
                   </td>
                 </tr>
@@ -147,21 +146,21 @@ const HomeContent = () => {
                     <img
                       className="stack-item"
                       src={process.env.PUBLIC_URL + "./python.png"}
-                      alt="css"
+                      alt="python"
                     ></img>
                   </td>
                   <td>
                     <img
                       className="stack-item"
                       src={process.env.PUBLIC_URL + "./bootstrap5.png"}
-                      alt="css"
+                      alt="bootstrap5"
                     ></img>
                   </td>
                   <td>
                     <img
                       className="stack-item"
                       src={process.env.PUBLIC_URL + "./java.png"}
-                      alt="css"
+                      alt="java"
                     ></img>
                   </td>
                   <td>
@@ -175,14 +174,14 @@ const HomeContent = () => {
                     <img
                       className="stack-item"
                       src={process.env.PUBLIC_URL + "./css.png"}
-                      alt="css"
+                      alt="html5"
                     ></img>
                   </td>
                   <td>
                     <img
                       className="stack-item"
                       src={process.env.PUBLIC_URL + "./js.png"}
-                      alt="css"
+                      alt="js"
                     ></img>
                   </td>
                 </tr>
@@ -208,21 +207,21 @@ const HomeContent = () => {
                     <img
                       className="stack-item"
                       src={process.env.PUBLIC_URL + "./c++.png"}
-                      alt="css"
+                      alt="c++"
                     ></img>
                   </td>
                   <td>
                     <img
                       className="stack-item"
                       src={process.env.PUBLIC_URL + "./c.png"}
-                      alt="css"
+                      alt="c"
                     ></img>
                   </td>
                   <td>
                     <img
                       className="stack-item"
                       src={process.env.PUBLIC_URL + "./nodejs.png"}
-                      alt="css"
+                      alt="nodejs"
                     ></img>
                   </td>
                   <td>
@@ -236,7 +235,7 @@ const HomeContent = () => {
                     <img
                       className="stack-item"
                       src={process.env.PUBLIC_URL + "./spring.png"}
-                      alt="css"
+                      alt="spring"
                     ></img>
                   </td>
                 </tr>
