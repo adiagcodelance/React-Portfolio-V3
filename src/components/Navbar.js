@@ -17,7 +17,12 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-transparent" id="navbar">
       <a className="navbar-brand ps-5" id="navbarlogo" href="/">
-        <label className="brand">AA</label>
+        <div>
+          <label className="brand">Aditya Agrawal</label>
+        </div>
+        <div>
+          <label className="brand">Developer & Designer</label>
+        </div>
       </a>
 
       <button

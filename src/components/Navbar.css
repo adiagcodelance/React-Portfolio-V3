@@ -1,35 +1,29 @@
 /* Navbar.css */
 
 #navbarlogo {
-  background-image: linear-gradient(to right, #ffffff 35%, #d4d4d4 70%, #6C6A69 90%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  height: 200px;
-  display: flex;
-  /* Add display flex to enable flexbox properties */
+  color: #000;
+  width: fit-content;
+  display: grid;
   justify-content: center;
-  /* Center the content horizontally */
   align-items: center;
+
 }
 
 .brand {
-  width: 70%;
-  font-size: 50px;
-  white-space: normal;
-  word-wrap: break-word;
+  font-family: 'Courier New', Courier, monospace;
+  width: fit-content;
+  margin: auto;
+  font-size: 30px;
+  font-weight: 600;
 }
 
 .nav-item a {
+  font-family: 'Courier New', Courier, monospace;
   text-align: center;
   border-radius: 40px;
-  font-size: 25px;
-  background-image: linear-gradient(to right, #ffffff 35%, #d4d4d4 70%, #6C6A69 90%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+  font-size: 20px;
+  font-weight: 400;
+  color: #000;
 }
 
 .nav-item a.active {
@@ -40,7 +34,7 @@
 .underline {
   height: 1px;
   width: 0;
-  background-color: #ffffff;
+  background-color: #000;
   transition: width 0.3s;
 }
 
@@ -51,11 +45,22 @@
 /* To make the underline appear when the link is hovered or active */
 .nav-item a:hover~.underline,
 .nav-item a.active~.underline {
+  color: #4d4a4a;
   width: 100%;
 }
 
 #navbar {
-  position: absolute;
+  width: 100%;
+  position: relative;
+  margin: auto;
+  justify-content: space-between;
+}
+
+#navbarNav {
+  width: fit-content;
+  display: flex;
+
+
 }
 
 .nav-item {

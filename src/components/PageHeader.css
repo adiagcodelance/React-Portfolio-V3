@@ -1,7 +1,3 @@
-* {
-  font-family: didot;
-}
-
 .page-header {
   width: 100%;
 }
@@ -9,12 +5,31 @@
 .header-section {
   width: fit-content;
   margin: auto;
+  display: flex;
 }
 
 .header-title-block {
+
+  width: fit-content;
+  margin: auto;
   display: grid;
-  align-self: center;
+  align-items: center;
   justify-content: center;
+}
+
+.header-title-block-item {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 80px;
+}
+
+.header-image-block {
+  width: fit-content;
+  margin: auto;
+  padding: 40px;
+}
+
+.header-image-block-item {
+  width: 400px;
 }
 
 
