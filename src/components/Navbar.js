@@ -18,10 +18,14 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg bg-transparent" id="navbar">
       <a className="navbar-brand ps-5" id="navbarlogo" href="/">
         <div>
-          <label className="brand">Aditya Agrawal</label>
+          <label className="brand" id="brand-name-01">
+            Aditya Agrawal
+          </label>
         </div>
         <div>
-          <label className="brand">Developer & Designer</label>
+          <label className="brand" id="brand-name-02">
+            Developer & Designer
+          </label>
         </div>
       </a>
 

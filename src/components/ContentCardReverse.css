@@ -1,9 +1,9 @@
-.content-card {
+.content-card-reverse {
     width: 100%;
     padding: 20px;
 }
 
-.content-card-section-block {
+.content-card-reverse-section-block {
     width: fit-content;
     display: grid;
     align-items: center;
@@ -12,33 +12,33 @@
     padding: 20px;
 }
 
-.content-card-block {
+.content-card-reverse-block {
     width: 1300px;
     margin: auto;
     display: grid;
     padding: 20px;
 }
 
-.content-card-block-title-item {
+.content-card-reverse-block-title-item {
     width: fit-content;
-    padding: 20px;
-}
-
-.content-card-block-title-item label {
-    width: fit-content;
-    font-size: 80px;
-    padding: 5px;
-}
-
-.content-card-block-item {
-    width: fit-content;
-    text-align: start;
     margin: auto;
     margin-right: 20px;
     padding: 20px;
 }
 
-.content-card-block-item p {
+.content-card-reverse-block-title-item label {
+    width: fit-content;
+    font-size: 80px;
+    padding: 5px;
+}
+
+.content-card-reverse-block-item {
+    width: fit-content;
+    text-align: start;
+    padding: 20px;
+}
+
+.content-card-reverse-block-item p {
     width: 850px;
     font-size: 20px;
     padding: 20px;

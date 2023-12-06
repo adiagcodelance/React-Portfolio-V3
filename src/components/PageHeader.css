@@ -6,6 +6,7 @@
   width: fit-content;
   margin: auto;
   display: flex;
+  padding: 40px;
 }
 
 .header-title-block {
@@ -15,11 +16,11 @@
   display: grid;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .header-title-block-item {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 80px;
+  font-size: 60px;
 }
 
 .header-image-block {

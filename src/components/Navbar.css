@@ -9,16 +9,20 @@
 
 }
 
+
 .brand {
-  font-family: 'Courier New', Courier, monospace;
   width: fit-content;
   margin: auto;
-  font-size: 30px;
-  font-weight: 600;
+  font-size: 20px;
 }
 
+#brand-name-01 {
+  font-weight: 800;
+}
+
+#brand-name-02 {}
+
 .nav-item a {
-  font-family: 'Courier New', Courier, monospace;
   text-align: center;
   border-radius: 40px;
   font-size: 20px;
@@ -51,12 +55,13 @@
 
 #navbar {
   width: 100%;
-  position: relative;
+  position: fixed;
   margin: auto;
+  padding: 40px;
   justify-content: space-between;
 }
 
-#navbarNav {
+#navbar ::-webkit-scrollbar #navbarNav {
   width: fit-content;
   display: flex;
 

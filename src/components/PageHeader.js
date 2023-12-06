@@ -9,6 +9,13 @@ const PageHeader = ({ title1, title2, image }) => {
     <div className="page-header">
       <section className="header-section" id="header-01">
         <div className="header-title-block">
+          <div className="header-image-block" id="header-image-block-01">
+            <img
+              className="header-image-block-item"
+              id="header-image-block-item-01"
+              src={image}
+            ></img>
+          </div>
           <div
             className="header-title-block-item"
             id="header-title-block-item-01"
@@ -21,13 +28,6 @@ const PageHeader = ({ title1, title2, image }) => {
           >
             <label className="header-title-item">{title2}</label>
           </div>
-        </div>
-        <div className="header-image-block" id="header-image-block-01">
-          <img
-            className="header-image-block-item"
-            id="header-image-block-item-01"
-            src={image}
-          ></img>
         </div>
       </section>
     </div>

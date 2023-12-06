@@ -1,21 +1,23 @@
 import React from "react";
+import "./ContentCard.css";
 
-const ContentCard = () => {
+const ContentCard = (props) => {
   return (
     <div className="content-card">
       <section className="content-card-section-block">
         <div className="content-card-block">
           <div
+            className="content-card-block-title-item"
+            id="content-card-block-title-item-01"
+          >
+            <label>{props.title}</label>
+          </div>
+          <div className="spacer"></div>
+          <div
             className="content-card-block-item"
             id="content-card-block-item-01"
           >
-            Welcome to my portfolio webpage! my name is Aditya Agrawal, a
-            Computer Scientist with an interest in web development/design. I
-            thrive in creative projects and love challenges in fast-paced
-            environments. This website showcases my journey through four
-            iterations, each teaching me something new. I'm always filled with
-            ideas to improve and recently added an iteration counter to mark the
-            changes made since I started this portfolio project.
+            <p>{props.content}</p>
           </div>
         </div>
       </section>
