@@ -24,8 +24,10 @@ const Home = () => {
       <SubHeader />
       <CTAButton buttonlabel="Contact Me" />
       <ContentCard
-        title="Short"
-        content="Aditya's experience includes adopting Visual Identity Systems for companies that range from startups to multi-national corporations. He has designed a wide range of print materials including annual reports, business cards, posters and much more. He has worked on projects ranging from large-scale events to small-scale print jobs."
+        title="Profile"
+        content="
+        
+Aditya is a customer-oriented tech enthusiast, deeply committed to leveraging his skills for continuous learning. With a keen interest in applying his expertise gained from various projects and career opportunities, Aditya excels in assessing customer goals and requirements. His primary focus is on developing optimal solutions that meet and exceed customer expectations."
       />
       <ContentCardReverse
         title="Unique"

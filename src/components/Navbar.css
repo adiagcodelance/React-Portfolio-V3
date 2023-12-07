@@ -57,8 +57,12 @@
   width: 100%;
   position: fixed;
   margin: auto;
-  padding: 40px;
+  padding: 20px;
+  padding-left: 250px;
+  padding-right: 250px;
   justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.8); /* White background with 80% opacity */
+  backdrop-filter: blur(5px); 
 }
 
 #navbar ::-webkit-scrollbar #navbarNav {
@@ -70,8 +74,7 @@
 
 .nav-item {
   position: relative;
-
-  padding-right: 20px;
+  padding-right: 10px;
   /* Increase the padding to add more space */
 }
 

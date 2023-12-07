@@ -15,7 +15,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg bg-transparent" id="navbar">
+    <nav className="navbar navbar-expand-lg bg-blurred" id="navbar">
       <a className="navbar-brand ps-5" id="navbarlogo" href="/">
         <div>
           <label className="brand" id="brand-name-01">
