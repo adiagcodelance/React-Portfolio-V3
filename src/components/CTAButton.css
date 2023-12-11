@@ -27,7 +27,7 @@
 }
 
 .ctabutton-item:hover {
-    border: 2px solid #4d4a4a;
-    color: #4d4a4a;
-    text-decoration: underline;
+    border: 2px solid #807c7c;
+    color: #fff;
+    background-color: #857f7f;
 }

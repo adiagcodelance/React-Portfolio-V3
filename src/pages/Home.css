@@ -5,6 +5,12 @@ body {
 }
 
 .content {
-
   min-height: 100%;
+}
+
+.experience-section {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
 }

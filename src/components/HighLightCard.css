@@ -1,0 +1,64 @@
+.highlight-card {
+    width: 100%;
+
+}
+
+.highlight-card-section-block {
+    width: fit-content;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding: 5px;
+}
+
+.highlight-card-block {
+    width: fit-content;
+    margin: auto;
+    margin-left: 80px;
+    display: grid;
+    justify-content: center;
+    padding: 10px;
+}
+
+.highlight-card-block-title-item {
+    width: fit-content;
+    padding: 15px;
+}
+
+.highlight-card-block-title-item label {
+    width: fit-content;
+    font-size: 80px;
+    padding: 5px;
+
+}
+
+.highlight-card-block-item {
+    width: 600px;
+    text-align: start;
+    padding: 20px;
+    background-color: #37474f;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px #6e6c6c;
+
+}
+
+.highlight-card-info-block {
+    display: grid;
+    font-weight: 550;
+    color: #fff;
+}
+
+
+.highlight-card-block-title-item label {
+    word-wrap: break-word;
+}
+
+.highlight-card-block-item p {
+    width: 500px;
+    font-size: 15px;
+    padding: 10px;
+    margin: 0;
+    font-weight: 550;
+    color: #fff;
+}

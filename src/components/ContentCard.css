@@ -9,25 +9,26 @@
     align-items: center;
     justify-content: center;
     margin: auto;
-    padding: 20px;
+    padding: 5px;
 }
 
 .content-card-block {
-    width: 1300px;
+    width: 1150px;
     margin: auto;
     display: grid;
-    padding: 20px;
+    padding: 10px;
 }
 
 .content-card-block-title-item {
     width: fit-content;
-    padding: 20px;
+    padding: 10px;
 }
 
 .content-card-block-title-item label {
     width: fit-content;
     font-size: 80px;
     padding: 5px;
+    height: 100px;
 }
 
 .content-card-block-item {

@@ -9,27 +9,29 @@
     align-items: center;
     justify-content: center;
     margin: auto;
-    padding: 20px;
+    padding: 5px;
 }
 
 .content-card-reverse-block {
-    width: 1300px;
+    width: 1150px;
     margin: auto;
     display: grid;
-    padding: 20px;
+    padding: 10px;
 }
 
 .content-card-reverse-block-title-item {
     width: fit-content;
     margin: auto;
     margin-right: 20px;
-    padding: 20px;
+    padding: 10px;
 }
 
 .content-card-reverse-block-title-item label {
     width: fit-content;
     font-size: 80px;
+    height: 100px;
     padding: 5px;
+
 }
 
 .content-card-reverse-block-item {
