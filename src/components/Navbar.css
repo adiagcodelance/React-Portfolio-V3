@@ -52,6 +52,11 @@
 .brand:hover {
   color: #807c7c;
   width: 100%;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  cursor: pointer;
 }
 
 #navbar {

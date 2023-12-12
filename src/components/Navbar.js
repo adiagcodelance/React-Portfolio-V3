@@ -1,4 +1,4 @@
-// Navbar.js
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 
 import React, { useState } from "react";
 import "./Navbar.css";
@@ -47,28 +47,36 @@ const Navbar = () => {
             className={`nav-item ${activeLink === 0 ? "active" : ""}`}
             id="navitem"
           >
-            <a
+            <ScrollLink
               className="nav-link"
-              href="#"
+              to="home"
+              smooth={true}
+              duration={400}
+              offset={-50}
               onMouseEnter={() => handleLinkMouseEnter(0)}
               onMouseLeave={handleLinkMouseLeave}
             >
               About Me
-            </a>
+            </ScrollLink>
             <div
               className={`underline ${activeLink === 0 ? "show" : ""}`}
             ></div>
           </li>
           <li className="nav-item" id="navitem">
-            <a className="nav-link" href="#" style={{textDecoration: 'line-through'}}>
+            <ScrollLink
+              className="nav-link"
+              to="experience-section"
+              smooth={true}
+              duration={500}
+            >
               Projects
-            </a>
+            </ScrollLink>
             <div className="underline"></div>
           </li>
           <li className="nav-item" id="navitem">
-            <a className="nav-link" href="#" style={{textDecoration: 'line-through'}}>
+            <ScrollLink className="nav-link" to="">
               Socials
-            </a>
+            </ScrollLink>
             <div className="underline"></div>
           </li>
           {/** 
