@@ -15,7 +15,6 @@
 .highlight-card-block {
     width: fit-content;
     margin: auto;
-    margin-left: 80px;
     display: grid;
     justify-content: center;
     padding: 10px;

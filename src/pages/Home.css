@@ -8,9 +8,21 @@ body {
   min-height: 100%;
 }
 
+.timeline-component{
+  width: 250px;
+}
+
 .experience-section {
   display: flex;
   flex-direction: row;
   width: 100%;
-
+  padding: 80px;
 }
+
+.highlight-card-component{
+  width: fit-content;
+  margin: auto;
+  margin-top: 0;
+  padding: 10px;
+}
+

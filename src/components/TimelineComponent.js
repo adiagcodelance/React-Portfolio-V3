@@ -3,6 +3,7 @@ import "./TimelineComponent.css";
 
 const TimelineComponent = () => {
   return (
+    
     <div class="timeline">
       <div class="event" id="event-01">
         {" "}
@@ -25,15 +26,10 @@ const TimelineComponent = () => {
 
       <div class="event" id="event-04">
         <div class="event-content">
-          <h3>2018</h3>
-        </div>
-      </div>
-
-      <div class="event" id="event-05">
-        <div class="event-content">
           <h3>2014</h3>
         </div>
       </div>
+    
     </div>
   );
 };

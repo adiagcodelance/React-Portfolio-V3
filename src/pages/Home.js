@@ -12,10 +12,12 @@ import ContentCardReverse from "../components/ContentCardReverse";
 import CTAButton from "../components/CTAButton";
 import HighLightCard from "../components/HighLightCard";
 import TimelineComponent from "../components/TimelineComponent";
+import Navbar from "../components/Navbar";
 
 const Home = () => {
   return (
     <div className="content">
+      <Navbar />
       <section className="landing-seciton">
         <title>Home</title>
         <link rel="icon" type="image/x-icon" href="/images/favicon.ico"></link>
@@ -69,7 +71,7 @@ Find myself adept at fostering connections, I thrive in social events, recognizi
             title=""
             position="Operations Assistant Manager"
             company="The Spice Store, Charlottetown, PE, Canada"
-            time="Nov 2023 - Current"
+            time="Nov 2018 - Current"
             desc=<ul style={{ listStyle: "disc", paddingLeft: 0 }}>
               <li>
                 Managed salesfloor operations, procurement, logistics, pricing,
@@ -125,7 +127,29 @@ Find myself adept at fostering connections, I thrive in social events, recognizi
           className="highlight-card-component"
           id="highlight-card-component-02"
         >
-          <HighLightCard title="Projects" />
+          <HighLightCard title="Projects" 
+          position="Aditya Portfolio Website"
+          company="Personal"
+          time="Dec 2023"
+          desc=""/>
+        
+          <HighLightCard title="" 
+          position="The Spice Store Website"
+          company="The Spice Store"
+          time="Oct 2023"
+          desc=""/>
+          
+          <HighLightCard title="" 
+          position="Telling Stories Website"
+          company="University of Prince Edward Island - Software Engineering"
+          time="Apr 2023"
+          desc=""/>
+          
+          <HighLightCard title="" 
+          position="Assignment Planner App"
+          company="University of Prince Edward Island - Android App Development"
+          time="Apr 2023"
+          desc=""/>
         </div>
       </section>
     </div>

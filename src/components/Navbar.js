@@ -16,7 +16,7 @@ const Navbar = () => {
 
   return (
     <nav className="navbar navbar-expand-lg bg-blurred" id="navbar">
-      <a className="navbar-brand ps-5" id="navbarlogo" href="/">
+      <a className="navbar-brand ps-5" id="navbarlogo" href="#">
         <div>
           <label className="brand" id="brand-name-01">
             Aditya Agrawal
@@ -49,7 +49,7 @@ const Navbar = () => {
           >
             <a
               className="nav-link"
-              href="/"
+              href="#"
               onMouseEnter={() => handleLinkMouseEnter(0)}
               onMouseLeave={handleLinkMouseLeave}
             >
@@ -60,13 +60,13 @@ const Navbar = () => {
             ></div>
           </li>
           <li className="nav-item" id="navitem">
-            <a className="nav-link" href="/projects">
+            <a className="nav-link" href="#" style={{textDecoration: 'line-through'}}>
               Projects
             </a>
             <div className="underline"></div>
           </li>
           <li className="nav-item" id="navitem">
-            <a className="nav-link" href="/socials">
+            <a className="nav-link" href="#" style={{textDecoration: 'line-through'}}>
               Socials
             </a>
             <div className="underline"></div>

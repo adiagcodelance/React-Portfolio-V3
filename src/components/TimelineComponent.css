@@ -1,3 +1,4 @@
+
 .timeline {
     position: relative;
     margin: auto;
@@ -31,12 +32,20 @@
 
 #event-01 {
     top: 30%;
-    left: 0;
-    /* Adjust the left position if needed */
+    left: 0;  
 }
 
 #event-02 {
+    top: 50%;
+    left: 0;
+}
+
+#event-03 {
+    top: 70%;
+    left: 0;
+}
+
+#event-04 {
     top: 80%;
     left: 0;
-    /* Adjust the left position if needed */
 }
