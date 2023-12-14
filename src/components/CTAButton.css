@@ -1,0 +1,33 @@
+.ctabutton {
+    width: fit-content;
+    margin: auto;
+    padding: 50px;
+}
+
+.ctabutton-block {
+    width: fit-content;
+    margin: auto;
+}
+
+.ctabutton-block-item {
+    width: fit-content;
+
+}
+
+.ctabutton-item {
+    width: fit-content;
+    font-size: 20px;
+    color: #000;
+    text-decoration: none;
+    width: fit-content;
+    margin: auto;
+    padding: 15px;
+    border: 2px solid #000;
+    border-radius: 40px;
+}
+
+.ctabutton-item:hover {
+    border: 2px solid #807c7c;
+    color: #fff;
+    background-color: #857f7f;
+}

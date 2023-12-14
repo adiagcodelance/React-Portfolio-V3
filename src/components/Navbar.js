@@ -1,4 +1,4 @@
-// Navbar.js
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 
 import React, { useState } from "react";
 import "./Navbar.css";
@@ -15,9 +15,18 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg bg-transparent" id="navbar">
-      <a className="navbar-brand ps-5" id="navbarlogo" href="/">
-        <label className="brand">AA</label>
+    <nav className="navbar navbar-expand-lg bg-blurred" id="navbar">
+      <a className="navbar-brand ps-5" id="navbarlogo" href="#">
+        <div>
+          <label className="brand" id="brand-name-01">
+            Aditya Agrawal
+          </label>
+        </div>
+        <div>
+          <label className="brand" id="brand-name-02">
+            Developer & Designer
+          </label>
+        </div>
       </a>
 
       <button
@@ -38,28 +47,36 @@ const Navbar = () => {
             className={`nav-item ${activeLink === 0 ? "active" : ""}`}
             id="navitem"
           >
-            <a
+            <ScrollLink
               className="nav-link"
-              href="/"
+              to="home"
+              smooth={true}
+              duration={400}
+              offset={-50}
               onMouseEnter={() => handleLinkMouseEnter(0)}
               onMouseLeave={handleLinkMouseLeave}
             >
               About Me
-            </a>
+            </ScrollLink>
             <div
               className={`underline ${activeLink === 0 ? "show" : ""}`}
             ></div>
           </li>
           <li className="nav-item" id="navitem">
-            <a className="nav-link" href="/projects">
+            <ScrollLink
+              className="nav-link"
+              to="experience-section"
+              smooth={true}
+              duration={500}
+            >
               Projects
-            </a>
+            </ScrollLink>
             <div className="underline"></div>
           </li>
           <li className="nav-item" id="navitem">
-            <a className="nav-link" href="/socials">
+            <ScrollLink className="nav-link" to="">
               Socials
-            </a>
+            </ScrollLink>
             <div className="underline"></div>
           </li>
           {/** 
