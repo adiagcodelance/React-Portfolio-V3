@@ -22,9 +22,9 @@ const ProjectContent = () => {
         <div className="project-card-body">
           <p>
             Welcome to the My Project, here are the projects I have worked on
-            displayed to showcase my work done during my academic and post academic career. This page acts as
-            my resume and a log to help me keep track of my projects completed
-            and on-going.
+            displayed to showcase my work done during my academic and post
+            academic career. This page acts as my resume and a log to help me
+            keep track of my projects completed and on-going.
           </p>
         </div>
       </div>
@@ -43,8 +43,10 @@ const ProjectContent = () => {
                   <th className="project-table-header">Academic</th>
 
                   {/* Academic project cells */}
-                  <td className="project-item">Tellign Stories 2023/Website</td>
-                  <td className="project-item">Assignment Planner App 2023/App</td>
+                  <td className="project-item">Telling Stories 2023/Website</td>
+                  <td className="project-item">
+                    Assignment Planner App 2023/App
+                  </td>
                 </tr>
                 <tr>
                   <th className="project-table-header">Professional</th>
@@ -52,7 +54,11 @@ const ProjectContent = () => {
                 </tr>
                 <tr>
                   <th className="project-table-header">Personal</th>
-                  <tr><td className="project-item">Portfolio Website 2023/Website</td></tr>
+                  <tr>
+                    <td className="project-item">
+                      Portfolio Website 2023/Website
+                    </td>
+                  </tr>
                 </tr>
               </thead>
               <tbody></tbody>
