@@ -12,6 +12,7 @@ const ContentCardReverse = (props) => {
           >
             <label>{props.title}</label>
           </div>
+
           <div
             className="content-card-reverse-block-item"
             id="content-card-reverse-block-item-01"
