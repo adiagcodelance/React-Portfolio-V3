@@ -8,7 +8,7 @@ body {
   min-height: 100%;
 }
 
-.timeline-component{
+.timeline-component {
   width: 250px;
 }
 
@@ -16,13 +16,12 @@ body {
   display: flex;
   flex-direction: row;
   width: 100%;
-  padding: 80px;
+  padding: 200px;
 }
 
-.highlight-card-component{
+.highlight-card-component {
   width: fit-content;
   margin: auto;
   margin-top: 0;
   padding: 10px;
 }
-
