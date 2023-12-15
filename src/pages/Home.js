@@ -13,6 +13,7 @@ import CTAButton from "../components/CTAButton";
 import HighLightCard from "../components/HighLightCard";
 import TimelineComponent from "../components/TimelineComponent";
 import Navbar from "../components/Navbar";
+import ScrollCarousel from "../components/ScrollingCarousel";
 
 const Home = () => {
   document.addEventListener("DOMContentLoaded", function () {
@@ -44,9 +45,13 @@ const Home = () => {
   return (
     <div className="content">
       <Navbar />
-      <section className="landing-seciton">
+      <section className="landing-section">
         <title>Home</title>
-        <link rel="icon" type="image/x-icon" href="/images/favicon.ico"></link>
+        <link
+          rel="icon"
+          type="image/x-icon"
+          href="/images/icon8-a-96.ico"
+        ></link>
         <PageHeader
           title1={"A Designer And Developer"}
           title2={"Interested In Building Solutions"}
@@ -185,6 +190,9 @@ Find myself adept at fostering connections, I thrive in social events, recognizi
             desc=""
           />
         </div>
+      </section>
+      <section className="services">
+        <ScrollCarousel title="Companies" />
       </section>
     </div>
   );
