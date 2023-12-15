@@ -15,32 +15,6 @@ import TimelineComponent from "../components/TimelineComponent";
 import Navbar from "../components/Navbar";
 
 const Home = () => {
-  document.addEventListener("DOMContentLoaded", function () {
-    const buttonToBlockMap = {
-      "block-aae767acabe01fa03832": "#block-6a8f23e1a6eae543db48",
-      "block-4c0aac5dedf61e0e726c": "#block-110178bc0dc45ef636ab",
-      "block-3a53f5af546657ccd72c": "#block-fc0499e775b1ea420449",
-      "block-3c323660819d0d40e632": "#block-a479f5850fefb3aa99d1",
-      // Add more button-to-block mappings as needed
-    };
-    // Select all buttons by class and apply styling
-    const buttons = document.querySelectorAll(".sqs-block-button"); // Replace with the actual class of your buttons
-    buttons.forEach(function (button) {
-      const buttonId = button.id;
-      const targetBlockSelector = buttonToBlockMap[buttonId];
-      const targetBlock = document.querySelector(targetBlockSelector);
-
-      if (targetBlock) {
-        button.addEventListener("click", function (event) {
-          event.preventDefault();
-          targetBlock.scrollIntoView({
-            behavior: "smooth",
-          });
-        });
-      }
-    });
-  });
-
   return (
     <div className="content">
       <Navbar />
@@ -55,7 +29,7 @@ const Home = () => {
         <SubHeader />
         <CTAButton buttonlabel="Contact Me" />
       </section>
-      <section className="home" id="home">
+      <section className="home">
         <ContentCard
           title="Profile"
           content="
@@ -72,7 +46,7 @@ Find myself adept at fostering connections, I thrive in social events, recognizi
 "
         />
       </section>
-      <section className="experience-section" id="experience-section">
+      <section className="experience-section">
         <div
           className="highlight-card-component"
           id="highlight-card-component-01"
@@ -153,37 +127,29 @@ Find myself adept at fostering connections, I thrive in social events, recognizi
           className="highlight-card-component"
           id="highlight-card-component-02"
         >
-          <HighLightCard
-            title="Projects"
-            position="Aditya Portfolio Website"
-            company="Personal"
-            time="Dec 2023"
-            desc=""
-          />
-
-          <HighLightCard
-            title=""
-            position="The Spice Store Website"
-            company="The Spice Store"
-            time="Oct 2023"
-            desc=""
-          />
-
-          <HighLightCard
-            title=""
-            position="Telling Stories Website"
-            company="University of Prince Edward Island - Software Engineering"
-            time="Apr 2023"
-            desc=""
-          />
-
-          <HighLightCard
-            title=""
-            position="Assignment Planner App"
-            company="University of Prince Edward Island - Android App Development"
-            time="Apr 2023"
-            desc=""
-          />
+          <HighLightCard title="Projects" 
+          position="Aditya Portfolio Website"
+          company="Personal"
+          time="Dec 2023"
+          desc=""/>
+        
+          <HighLightCard title="" 
+          position="The Spice Store Website"
+          company="The Spice Store"
+          time="Oct 2023"
+          desc=""/>
+          
+          <HighLightCard title="" 
+          position="Telling Stories Website"
+          company="University of Prince Edward Island - Software Engineering"
+          time="Apr 2023"
+          desc=""/>
+          
+          <HighLightCard title="" 
+          position="Assignment Planner App"
+          company="University of Prince Edward Island - Android App Development"
+          time="Apr 2023"
+          desc=""/>
         </div>
       </section>
     </div>
