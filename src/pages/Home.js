@@ -2,18 +2,19 @@ import React from "react";
 import { motion } from "framer-motion";
 import PageHeader from "../components/PageHeader";
 import ContentCard from "../components/ContentCard";
-import HomeContent from "../components/HomeContent";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircle } from "@fortawesome/free-solid-svg-icons";
 
 import "./Home.css";
-import SubHeader from "../components/SubHeader";
 import ContentCardReverse from "../components/ContentCardReverse";
 import CTAButton from "../components/CTAButton";
 import HighLightCard from "../components/HighLightCard";
 import TimelineComponent from "../components/TimelineComponent";
 import Navbar from "../components/Navbar";
 import ScrollCarousel from "../components/ScrollingCarousel";
+import PreviewBox from "../components/PreviewBox";
+import ReversePreviewBox from "../components/ReversePreviewBox";
 
 const Home = () => {
   document.addEventListener("DOMContentLoaded", function () {
@@ -57,7 +58,7 @@ const Home = () => {
           title2={"Interested In Building Solutions"}
           image={process.env.PUBLIC_URL + "./adi-01.jpg"}
         />
-        <SubHeader />
+
         <CTAButton buttonlabel="Contact Me" />
       </section>
       <section className="home" id="home">
@@ -194,6 +195,11 @@ Find myself adept at fostering connections, I thrive in social events, recognizi
       <section className="services">
         <ScrollCarousel title="Companies" />
       </section>
+      <section className="project-overview">
+        <PreviewBox />
+        <ReversePreviewBox />
+      </section>
+      <section className="social-form"></section>
     </div>
   );
 };

@@ -1,0 +1,92 @@
+.previewbox-container {
+    width: 100%;
+}
+
+.previewbox-block {
+    width: fit-content;
+    margin: auto;
+}
+
+.scroll-text {
+    position: fixed;
+    visibility: hidden;
+}
+
+.down-arrow,
+.scroll-text {
+    padding: 10px;
+    display: grid;
+    font-size: 24px;
+    transition: font-size 0.3s ease;
+}
+
+.previewbox-block:hover .scroll-text,
+.previewbox-block:hover .down-arrow {
+    position: relative;
+    font-size: 36px;
+    visibility: visible;
+}
+
+.previewbox-block-box {
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.previewbox-block-item {
+    padding: 20px;
+    width: 500px;
+    height: 600px;
+    margin: auto;
+    border: 2px solid #000;
+    border-radius: 10px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
+.previewbox-image-item {
+    width: fit-content;
+    margin: auto;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .previewbox-block-item::-webkit-scrollbar {
+        width: 12px;
+        /* Set the width of the scrollbar (adjust as needed) */
+    }
+
+    .previewbox-block-item::-webkit-scrollbar-thumb {
+        background-color: transparent;
+        /* Hide the thumb */
+    }
+
+    .previewbox-block-item::-webkit-scrollbar-track {
+        background-color: transparent;
+        /* Hide the track */
+    }
+}
+
+.previewbox-block-descriptor {
+    padding: 20px;
+    width: 600px;
+    margin: auto;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.previewbox-block-descriptor label {
+    font-size: 40px;
+}
+
+.previewbox-block-descriptor p {
+    width: fit-content;
+    margin: auto;
+    font-size: 20px;
+}
