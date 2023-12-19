@@ -7,8 +7,10 @@ const PreviewBox = () => {
     <div className="previewbox-container">
       <section className="previewbox-block">
         <div className="previewbox-block-box">
-          <span className="down-arrow">&darr;</span>
-          <span className="scroll-text">Scroll Down</span>
+          <div className="scroll-box">
+            <span className="scroll-text">Scroll Down</span>
+            <span className="down-arrow">&darr;</span>
+          </div>
           <div className="previewbox-block-item">
             <img
               className="previewbox-image-item"

@@ -43,8 +43,10 @@ const ReversePreviewBox = () => {
               src={process.env.PUBLIC_URL + "./SS Home end.png"}
             ></img>
           </div>
-          <span className="reverse-scroll-text">Scroll Down</span>
-          <span className="reverse-down-arrow">&darr;</span>
+          <div className="reverse-scroll-box">
+            <span className="reverse-scroll-text">Scroll Down</span>
+            <span className="reverse-down-arrow">&darr;</span>
+          </div>
         </div>
       </section>
     </div>

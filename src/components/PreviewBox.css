@@ -5,11 +5,24 @@
 .previewbox-block {
     width: fit-content;
     margin: auto;
+    padding: 100px;
 }
 
-.scroll-text {
-    position: fixed;
+.scroll-box {
+    width: fit-content;
+    margin: auto;
+    text-align: center;
+}
+
+.scroll-text,
+.down-arrow {
+    position: relative;
     visibility: hidden;
+    opacity: 0;
+    /* Initial opacity set to 0 */
+    font-size: 24px;
+    transition: opacity 1s ease-in-out, font-size 1s ease-in-out;
+    /* Include opacity in the transition */
 }
 
 .down-arrow,
@@ -17,12 +30,31 @@
     padding: 10px;
     display: grid;
     font-size: 24px;
-    transition: font-size 0.3s ease;
+}
+
+.previewbox-block:hover .reverse-scroll-text,
+.previewbox-block:hover .reverse-down-arrow {
+    position: relative;
+    opacity: 1;
+    /* Set opacity to 1 on hover */
+    font-size: 36px;
+    visibility: visible;
+}
+
+
+
+.reverse-previewbox-block:hover .reverse-scroll-text,
+.reverse-previewbox-block:hover .reverse-down-arrow {
+    position: relative;
+    font-size: 36px;
+    visibility: visible;
 }
 
 .previewbox-block:hover .scroll-text,
 .previewbox-block:hover .down-arrow {
     position: relative;
+    opacity: 1;
+    /* Set opacity to 1 on hover */
     font-size: 36px;
     visibility: visible;
 }
@@ -40,7 +72,7 @@
 
 .previewbox-block-item {
     padding: 20px;
-    width: 500px;
+    width: fit-content;
     height: 600px;
     margin: auto;
     border: 2px solid #000;
@@ -50,7 +82,7 @@
 }
 
 .previewbox-image-item {
-    width: fit-content;
+    width: 500px;
     margin: auto;
 }
 
