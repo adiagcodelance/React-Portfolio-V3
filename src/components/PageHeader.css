@@ -1,5 +1,14 @@
 .page-header {
   width: 100%;
+  padding-top: 80px;
+}
+
+#spline-frame {
+  width: 460px;
+  height: 350px;
+  margin: auto;
+  border-radius: 10%;
+  border: 1px solid white;
 }
 
 .header-section {
@@ -10,7 +19,6 @@
 }
 
 .header-title-block {
-
   width: fit-content;
   margin: auto;
   display: grid;
@@ -21,12 +29,21 @@
 
 .header-title-block-item {
   font-size: 60px;
+  padding-top: 20px;
+  color: white;
 }
 
 .header-image-block {
   width: fit-content;
   margin: auto;
-  padding: 40px;
+  padding: 5px;
+  border-radius: 10%;
+  border: 5px solid black;
+  box-shadow: 5px 5px 5px #522e2e;
+}
+
+.header-image-block:hover {
+  box-shadow: 5px 5px 10px #522e2e;
 }
 
 .header-image-block-item {

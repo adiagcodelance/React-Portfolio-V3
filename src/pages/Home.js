@@ -56,7 +56,6 @@ const Home = () => {
         <PageHeader
           title1={"A Designer And Developer"}
           title2={"Interested In Building Solutions"}
-          image={process.env.PUBLIC_URL + "./adi-01.jpg"}
         />
 
         <CTAButton buttonlabel="Contact Me" />

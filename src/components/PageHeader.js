@@ -10,11 +10,10 @@ const PageHeader = ({ title1, title2, image }) => {
       <section className="header-section" id="header-01">
         <div className="header-title-block">
           <div className="header-image-block" id="header-image-block-01">
-            <img
-              className="header-image-block-item"
-              id="header-image-block-item-01"
-              src={image}
-            ></img>
+            <iframe
+              id="spline-frame"
+              src="https://my.spline.design/untitled-f80871327cb13fd32f76a4e82068a5ff/"
+            ></iframe>
           </div>
           <div
             className="header-title-block-item"

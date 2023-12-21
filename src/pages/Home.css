@@ -8,6 +8,11 @@ body {
   min-height: 100%;
 }
 
+.landing-section {
+  width: 100%;
+  background-color: #996868;
+}
+
 .timeline-component {
   width: 250px;
 }
