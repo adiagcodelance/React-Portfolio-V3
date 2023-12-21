@@ -1,0 +1,100 @@
+// EmailModal.js
+import React, { useState } from "react";
+import "./EmailModal.css"; // You'll need to create this CSS file
+
+const EmailModal = ({ isOpen, onClose }) => {
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("http://localhost:3000/api/send-email", {
+        // ...
+
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          subject,
+          message, // Check if your form has a "message" field or if it should be "feedback"
+        }),
+      });
+
+      if (response.ok) {
+        console.log("Email sent successfully");
+        onClose(); // Close the modal on successful submission
+      } else {
+        console.error("Failed to send email");
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+    }
+  };
+
+  return (
+    <div className={`email-modal ${isOpen ? "open" : ""}`}>
+      <div className="email-modal-content">
+        <form onSubmit={handleSubmit}>
+          <span className="close-button" onClick={onClose}>
+            &times;
+          </span>
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <label htmlFor="subject">Subject:</label>
+          <input
+            type="text"
+            id="subject"
+            value={subject}
+            onChange={(e) => setSubject(e.target.value)}
+            required
+          />
+          <label htmlFor="message">Message:</label>
+          <textarea
+            id="message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            required
+          />
+          <div id="button-container-01">
+            <button id="send-button-01" type="submit">
+              Send
+            </button>
+          </div>
+          {/* Social Media Links */}
+          <div className="social-media-links">
+            <a href="#" target="_blank" rel="noopener noreferrer">
+              <img
+                src={process.env.PUBLIC_URL + "/iconmonstr-linkedin-5-240.png"}
+              ></img>
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer">
+              <img
+                src={
+                  process.env.PUBLIC_URL + "/iconmonstr-instagram-15-240.png"
+                }
+              ></img>
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer">
+              <img
+                src={process.env.PUBLIC_URL + "/iconmonstr-github-5-240.png"}
+              ></img>
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default EmailModal;
