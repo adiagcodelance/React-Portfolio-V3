@@ -15,6 +15,7 @@ import Navbar from "../components/Navbar";
 import ScrollCarousel from "../components/ScrollingCarousel";
 import PreviewBox from "../components/PreviewBox";
 import ReversePreviewBox from "../components/ReversePreviewBox";
+import ScrollDownTimeDelay from "../components/ScrollDownTimeDelay";
 
 const Home = () => {
   document.addEventListener("DOMContentLoaded", function () {
@@ -46,6 +47,7 @@ const Home = () => {
   return (
     <div className="content">
       <Navbar />
+      
       <section className="landing-section">
         <title>Home</title>
         <link
@@ -53,6 +55,7 @@ const Home = () => {
           type="image/x-icon"
           href="/images/icon8-a-96.ico"
         ></link>
+        <ScrollDownTimeDelay />
         <PageHeader
           title1={"A Designer And Developer"}
           title2={"Interested In Building Solutions"}
@@ -191,9 +194,11 @@ Find myself adept at fostering connections, I thrive in social events, recognizi
           />
         </div>
       </section>
+      <hr></hr>
       <section className="services">
         <ScrollCarousel title="Companies" />
       </section>
+      <hr></hr>
       <section className="project-overview">
         <PreviewBox />
         <ReversePreviewBox />

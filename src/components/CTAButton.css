@@ -34,3 +34,11 @@
     background-color: #9C4343;
     box-shadow: 5px 5px 10px #522e2e;
 }
+
+@media screen and (max-width: 1440px){
+
+    .ctabutton-item{
+      font-size: 15px;
+    }
+  
+  }

@@ -1,11 +1,11 @@
 .reverse-previewbox-container {
     width: 100%;
-    z-index: 1;
 }
 
 .reverse-previewbox-block {
     width: fit-content;
     margin: auto;
+    padding: 100px;
 }
 
 .reverse-scroll-box {
@@ -42,10 +42,11 @@
 }
 
 
-
-.reverse-previewbox-block:hover .reverse-scroll-text,
-.reverse-previewbox-block:hover .reverse-down-arrow {
+.reverse-previewbox-block:hover .scroll-text,
+.reverse-previewbox-block:hover .down-arrow {
     position: relative;
+    opacity: 1;
+    /* Set opacity to 1 on hover */
     font-size: 36px;
     visibility: visible;
 }
@@ -112,4 +113,36 @@
     width: fit-content;
     margin: auto;
     font-size: 20px;
+}
+
+@media screen and (max-width: 1440px) {
+
+    .reverse-previewbox-block{
+        padding: 5px;
+    }
+
+
+    .reverse-down-arrow,
+.reverse-scroll-text {
+    padding: 5px;
+    font-size: 14px;
+}
+
+    .reverse-previewbox-block:hover .reverse-scroll-text,
+.reverse-previewbox-block:hover .reverse-down-arrow {
+    
+    font-size: 26px;
+    
+}
+
+.reverse-previewbox-block:hover .scroll-text,
+.reverse-previewbox-block:hover .down-arrow {
+    
+    font-size: 26px;
+   
+}
+.reverse-previewbox-block-box{
+    display: flex;
+    flex-direction: column-reverse;
+}
 }

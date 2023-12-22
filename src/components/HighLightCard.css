@@ -36,9 +36,9 @@
     width: 600px;
     text-align: start;
     padding: 20px;
-    background-color: #37474f;
+    background-color: #996868;
     border-radius: 5px;
-    box-shadow: 0 5px 10px #6e6c6c;
+    box-shadow: 0 5px 10px #522e2e;
 
 }
 
@@ -61,3 +61,17 @@
     font-weight: 550;
     color: #fff;
 }
+
+@media screen and (max-width: 1440px) {
+    .highlight-card-block-title-item label {
+        font-size: 40px;
+    }
+
+    .highlight-card-block-item{
+        width: 400px;
+    }
+
+    .highlight-card-block-item p{
+        width: fit-content;
+    }
+}   

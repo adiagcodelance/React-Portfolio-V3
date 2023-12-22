@@ -141,3 +141,19 @@
     /* Further reduce padding for better spacing */
   }
 }
+
+@media screen and (max-width: 1440px){
+  #spline-frame {
+    width: 450px;
+    height: 400px;
+  }
+
+  .header-title-block-item{
+    font-size: 40px;
+  }
+
+  .ctabutton-item{
+    font-size: 10px;
+  }
+
+}

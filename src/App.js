@@ -1,13 +1,9 @@
 import "./App.css";
-import Navbar from "./components/Navbar.js";
-import Home from "./pages/Home.js";
-
-import Projects from "./pages/Projects.js";
-import Social from "./pages/Social.js";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
 
 function App() {
   return (
