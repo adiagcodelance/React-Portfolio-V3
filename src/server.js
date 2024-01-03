@@ -9,7 +9,7 @@ const PORT = 3000; // Replace with your desired port number
 
 // Middleware
 app.use(bodyParser.json());
-const allowedOrigins = ["https://your-react-app-domain.com"];
+const allowedOrigins = ["https://aditya-folio.com"];
 
 app.use(
   cors({
