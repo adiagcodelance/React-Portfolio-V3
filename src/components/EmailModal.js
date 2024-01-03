@@ -12,8 +12,6 @@ const EmailModal = ({ isOpen, onClose }) => {
 
     try {
       const response = await fetch("http://localhost:3000/api/send-email", {
-        // ...
-
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -21,7 +19,7 @@ const EmailModal = ({ isOpen, onClose }) => {
         body: JSON.stringify({
           email,
           subject,
-          message, // Check if your form has a "message" field or if it should be "feedback"
+          feedback: message, // Corrected field name to match your textarea id
         }),
       });
 
@@ -59,9 +57,9 @@ const EmailModal = ({ isOpen, onClose }) => {
             onChange={(e) => setSubject(e.target.value)}
             required
           />
-          <label htmlFor="message">Message:</label>
+          <label htmlFor="feedback">Message:</label>
           <textarea
-            id="message"
+            id="feedback" // Corrected id to match the field name in the fetch request
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             required
@@ -76,19 +74,22 @@ const EmailModal = ({ isOpen, onClose }) => {
             <a href="#" target="_blank" rel="noopener noreferrer">
               <img
                 src={process.env.PUBLIC_URL + "/iconmonstr-linkedin-5-240.png"}
-              ></img>
+                alt="LinkedIn"
+              />
             </a>
             <a href="#" target="_blank" rel="noopener noreferrer">
               <img
                 src={
                   process.env.PUBLIC_URL + "/iconmonstr-instagram-15-240.png"
                 }
-              ></img>
+                alt="Instagram"
+              />
             </a>
             <a href="#" target="_blank" rel="noopener noreferrer">
               <img
                 src={process.env.PUBLIC_URL + "/iconmonstr-github-5-240.png"}
-              ></img>
+                alt="GitHub"
+              />
             </a>
           </div>
         </form>

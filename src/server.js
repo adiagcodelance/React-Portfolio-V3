@@ -9,7 +9,13 @@ const PORT = 3000; // Replace with your desired port number
 
 // Middleware
 app.use(bodyParser.json());
-app.use(cors());
+const allowedOrigins = ["https://your-react-app-domain.com"];
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+  })
+);
 
 // Nodemailer setup
 const transporter = nodemailer.createTransport({
