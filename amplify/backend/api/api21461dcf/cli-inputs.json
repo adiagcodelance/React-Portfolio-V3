@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/send-email": {
+      "name": "/send-email",
+      "lambdaFunction": "reactportfoliov3e55aab2b",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}
