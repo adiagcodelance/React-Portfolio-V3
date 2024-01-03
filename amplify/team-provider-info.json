@@ -15,7 +15,7 @@
       "function": {
         "reactportfoliov3e55aab2b": {
           "deploymentBucketName": "amplify-reactportfoliov3-dev-155846-deployment",
-          "s3Key": "amplify-builds/reactportfoliov3e55aab2b-4b2b4153583631473832-build.zip"
+          "s3Key": "amplify-builds/reactportfoliov3e55aab2b-516175544c5a304e542b-build.zip"
         }
       },
       "api": {
