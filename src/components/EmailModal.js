@@ -11,7 +11,7 @@ const EmailModal = ({ isOpen, onClose }) => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3000/api/send-email", {
+      const response = await fetch("http://aditya-folio.com/api/send-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
