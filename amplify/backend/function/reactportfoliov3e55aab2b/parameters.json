@@ -1,3 +1,0 @@
-{
-  "CloudWatchRule": "rate(30 minutes)"
-}

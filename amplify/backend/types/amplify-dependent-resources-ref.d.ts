@@ -1,15 +1,14 @@
 export type AmplifyDependentResourcesAttributes = {
   "api": {
-    "api21461dcf": {
+    "emailapi": {
       "ApiId": "string",
       "ApiName": "string",
       "RootUrl": "string"
     }
   },
   "function": {
-    "reactportfoliov3e55aab2b": {
+    "reactportfoliov365f5ecce": {
       "Arn": "string",
-      "CloudWatchEventRule": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",
       "Name": "string",

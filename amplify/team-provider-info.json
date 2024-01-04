@@ -1,25 +1,25 @@
 {
-  "dev": {
+  "staging": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-reactportfoliov3-dev-155846-authRole",
-      "UnauthRoleArn": "arn:aws:iam::449484686935:role/amplify-reactportfoliov3-dev-155846-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::449484686935:role/amplify-reactportfoliov3-dev-155846-authRole",
-      "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-reactportfoliov3-dev-155846-deployment",
-      "UnauthRoleName": "amplify-reactportfoliov3-dev-155846-unauthRole",
-      "StackName": "amplify-reactportfoliov3-dev-155846",
-      "StackId": "arn:aws:cloudformation:us-east-1:449484686935:stack/amplify-reactportfoliov3-dev-155846/81875df0-aa72-11ee-9047-0a12ed4ec6bf",
-      "AmplifyAppId": "d18oi3zsmqzf9o"
+      "AuthRoleName": "amplify-amplifyc0de3154172a4-staging-210032-authRole",
+      "UnauthRoleArn": "arn:aws:iam::449484686935:role/amplify-amplifyc0de3154172a4-staging-210032-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::449484686935:role/amplify-amplifyc0de3154172a4-staging-210032-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-amplifyc0de3154172a4-staging-210032-deployment",
+      "UnauthRoleName": "amplify-amplifyc0de3154172a4-staging-210032-unauthRole",
+      "StackName": "amplify-amplifyc0de3154172a4-staging-210032",
+      "StackId": "arn:aws:cloudformation:us-east-2:449484686935:stack/amplify-amplifyc0de3154172a4-staging-210032/223fcd10-aa7b-11ee-a930-0a4f1ae1afef",
+      "AmplifyAppId": "dv7qwd2w2pth3"
     },
     "categories": {
       "function": {
-        "reactportfoliov3e55aab2b": {
-          "deploymentBucketName": "amplify-reactportfoliov3-dev-155846-deployment",
-          "s3Key": "amplify-builds/reactportfoliov3e55aab2b-516175544c5a304e542b-build.zip"
+        "reactportfoliov365f5ecce": {
+          "deploymentBucketName": "amplify-amplifyc0de3154172a4-staging-210032-deployment",
+          "s3Key": "amplify-builds/reactportfoliov365f5ecce-764775756b674b573637-build.zip"
         }
       },
       "api": {
-        "api21461dcf": {}
+        "emailapi": {}
       }
     }
   }

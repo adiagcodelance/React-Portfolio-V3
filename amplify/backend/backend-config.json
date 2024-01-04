@@ -1,6 +1,6 @@
 {
   "api": {
-    "api21461dcf": {
+    "emailapi": {
       "dependsOn": [
         {
           "attributes": [
@@ -8,7 +8,7 @@
             "Arn"
           ],
           "category": "function",
-          "resourceName": "reactportfoliov3e55aab2b"
+          "resourceName": "reactportfoliov365f5ecce"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -16,27 +16,26 @@
     }
   },
   "function": {
-    "reactportfoliov3e55aab2b": {
+    "reactportfoliov365f5ecce": {
       "build": true,
-      "dependsOn": [],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
   },
   "parameters": {
-    "AMPLIFY_function_reactportfoliov3e55aab2b_deploymentBucketName": {
+    "AMPLIFY_function_reactportfoliov365f5ecce_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "reactportfoliov3e55aab2b"
+          "resourceName": "reactportfoliov365f5ecce"
         }
       ]
     },
-    "AMPLIFY_function_reactportfoliov3e55aab2b_s3Key": {
+    "AMPLIFY_function_reactportfoliov365f5ecce_s3Key": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "reactportfoliov3e55aab2b"
+          "resourceName": "reactportfoliov365f5ecce"
         }
       ]
     }

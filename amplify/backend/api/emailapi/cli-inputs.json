@@ -3,7 +3,7 @@
   "paths": {
     "/send-email": {
       "name": "/send-email",
-      "lambdaFunction": "reactportfoliov3e55aab2b",
+      "lambdaFunction": "reactportfoliov365f5ecce",
       "permissions": {
         "setting": "open"
       }
