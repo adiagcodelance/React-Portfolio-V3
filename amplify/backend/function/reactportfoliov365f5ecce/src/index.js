@@ -25,6 +25,16 @@ exports.handler = async (event) => {
     // Send the email
     const info = await transporter.sendMail(mailOptions);
 
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error("Error sending email:", error);
+        res.status(500).json({ error: "Failed to send message." });
+      } else {
+        console.log("Email sent:", info.response);
+        res.status(200).json({ message: "Message sent successfully." });
+      }
+    });
+
     return {
       statusCode: 200,
       body: JSON.stringify({ message: "Email sent successfully", info }),
