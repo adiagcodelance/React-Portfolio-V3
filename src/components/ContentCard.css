@@ -44,3 +44,26 @@
     font-size: 20px;
     padding: 20px;
 }
+
+
+@media screen and (max-width: 428px) {
+    .content-card-block {
+        width: fit-content;
+    }
+
+    .content-card-block-title-item label {
+        font-size: 40px;
+    }
+
+    .content-card-block-item {
+        width: fit-content;
+        margin: auto;
+        padding: 0;
+    }
+
+    .content-card-block-item p {
+        width: fit-content;
+        font-size: 20px;
+        margin: auto;
+    }
+}

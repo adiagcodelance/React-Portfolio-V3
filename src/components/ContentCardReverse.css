@@ -45,3 +45,25 @@
     font-size: 20px;
     padding: 20px;
 }
+
+@media screen and (max-width: 428px) {
+    .content-card-reverse-block {
+        width: fit-content;
+    }
+
+    .content-card-reverse-block-title-item label {
+        font-size: 40px;
+    }
+
+    .content-card-reverse-block-item {
+        width: fit-content;
+        margin: auto;
+        padding: 0;
+    }
+
+    .content-card-reverse-block-item p {
+        width: fit-content;
+        font-size: 20px;
+        margin: auto;
+    }
+}

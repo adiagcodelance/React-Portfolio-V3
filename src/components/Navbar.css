@@ -115,26 +115,60 @@
 
 }
 
-@media screen and (max-width: 375px) {
-
-  /* iPhone 11 Pro and smaller */
-  #navbarlogo {
-    height: 80px;
-    /* Adjust height for smaller iPhone screens */
-  }
-
-  .brand {
-    font-size: 20px;
-    /* Reduce font size for smaller screens */
-  }
-
-  .nav-item a {
-    font-size: 18px;
-    /* Reduce font size for smaller screens */
+@media screen and (max-width: 768px) {
+  #navbar {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .nav-item {
     padding-right: 5px;
     /* Reduce the padding for better spacing on smaller screens */
+  }
+}
+
+@media screen and (max-width: 575px) {
+  #navbarlogo {
+    height: 80px;
+  }
+
+  .brand {
+    font-size: 18px;
+  }
+
+  .nav-item a {
+    font-size: 18px;
+  }
+
+  .nav-item {
+    padding-right: 5px;
+  }
+}
+
+@media screen and (max-width: 428px) {
+  #navbar {
+    padding: 20px;
+    width: fit-content;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+  }
+
+
+
+  #navbarList {
+    display: none;
+  }
+
+  .brand {
+    font-size: 15px;
+  }
+
+  .nav-item a {
+    font-size: 16px;
+  }
+
+  .nav-item {
+    padding-right: 5px;
   }
 }

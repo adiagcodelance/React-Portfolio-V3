@@ -142,17 +142,32 @@
   }
 }
 
-@media screen and (max-width: 1440px){
+@media screen and (max-width: 1440px) {
   #spline-frame {
     width: 450px;
     height: 400px;
   }
 
-  .header-title-block-item{
+  .header-title-block-item {
     font-size: 40px;
   }
 
-  .ctabutton-item{
+  .ctabutton-item {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 428px) {
+  #spline-frame {
+    width: 250px;
+    height: 200px;
+  }
+
+  .header-title-block-item {
+    font-size: 40px;
+  }
+
+  .ctabutton-item {
     font-size: 10px;
   }
 
