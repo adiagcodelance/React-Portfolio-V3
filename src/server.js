@@ -11,7 +11,7 @@ const PORT = 3000; // Replace with your desired port number
 app.use(bodyParser.json());
 
 const allowedOrigins = {
-  origin: "https://aditya-folio.com",
+  origin: "https://www.aditya-folio.com",
   optionsSuccessStatus: 200, // Some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
