@@ -11,17 +11,20 @@ const EmailModal = ({ isOpen, onClose }) => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://aditya-folio.com/api/send-email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          subject,
-          feedback: message, // Corrected field name to match your textarea id
-        }),
-      });
+      const response = await fetch(
+        "https://www.aditya-folio.com/api/send-email",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            subject,
+            feedback: message, // Corrected field name to match your textarea id
+          }),
+        }
+      );
 
       if (response.ok) {
         console.log("Email sent successfully");

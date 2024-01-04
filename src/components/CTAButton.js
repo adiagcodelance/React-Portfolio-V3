@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import "./CTAButton.css";
 import EmailModal from "./EmailModal";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const CTAButton = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
