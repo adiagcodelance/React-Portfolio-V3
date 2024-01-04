@@ -30,6 +30,16 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+transporter.sendMail(mailOptions, (error, info) => {
+  if (error) {
+    console.error("Error sending email:", error);
+    res.status(500).json({ error: "Failed to send message." });
+  } else {
+    console.log("Email sent:", info.response);
+    res.status(200).json({ message: "Message sent successfully." });
+  }
+});
+
 // API endpoint to handle form submissions
 app.post("/api/send-email", (req, res) => {
   const { email, subject, message } = req.body;
