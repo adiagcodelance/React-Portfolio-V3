@@ -33,8 +33,14 @@ body {
 }
 
 @media screen and (max-width: 1440px) {
-  .experience-section{
+  .experience-section {
     padding: 20px;
   }
-  
+
+}
+
+@media screen and (max-width: 428px) {
+  .experience-section {
+    display: grid;
+  }
 }

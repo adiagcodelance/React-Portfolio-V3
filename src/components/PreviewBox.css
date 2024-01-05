@@ -117,32 +117,48 @@
 
 @media screen and (max-width: 1440px) {
 
-    .previewbox-block{
+    .previewbox-block {
         padding: 5px;
     }
 
     .down-arrow,
-.scroll-text {
-    padding: 5px;
-    font-size: 14px;
-}
+    .scroll-text {
+        padding: 5px;
+        font-size: 14px;
+    }
 
     .previewbox-block:hover .reverse-scroll-text,
-.previewbox-block:hover .reverse-down-arrow {
-    
-    font-size: 26px;
-    
+    .previewbox-block:hover .reverse-down-arrow {
+
+        font-size: 26px;
+
+    }
+
+    .previewbox-block:hover .scroll-text,
+    .previewbox-block:hover .down-arrow {
+
+        font-size: 26px;
+
+    }
+
+    .previewbox-block-box {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
-.previewbox-block:hover .scroll-text,
-.previewbox-block:hover .down-arrow {
-    
-    font-size: 26px;
-   
-}
+@media screen and (max-width: 428px) {
+    .previewbox-block {
+        width: fit-content;
 
-.previewbox-block-box{
-    display: flex;
-    flex-direction: column;
-}
+    }
+
+    .previewbox-block-descriptor {
+        width: fit-content;
+        margin: auto;
+    }
+
+    .previewbox-block-descriptor label {
+        font-size: 40px;
+    }
 }

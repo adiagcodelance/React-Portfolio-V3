@@ -67,11 +67,23 @@
         font-size: 40px;
     }
 
-    .highlight-card-block-item{
+    .highlight-card-block-item {
         width: 400px;
     }
 
-    .highlight-card-block-item p{
+    .highlight-card-block-item p {
         width: fit-content;
     }
-}   
+}
+
+@media screen and (max-width: 428px) {
+    .highlight-card-block {}
+
+    #highlight-card-block-title-item-01 label {
+        font-size: 40px;
+    }
+
+    #highlight-card-block-item-01 {
+        width: fit-content;
+    }
+}

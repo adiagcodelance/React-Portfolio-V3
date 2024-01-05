@@ -117,32 +117,49 @@
 
 @media screen and (max-width: 1440px) {
 
-    .reverse-previewbox-block{
+    .reverse-previewbox-block {
         padding: 5px;
     }
 
 
     .reverse-down-arrow,
-.reverse-scroll-text {
-    padding: 5px;
-    font-size: 14px;
-}
+    .reverse-scroll-text {
+        padding: 5px;
+        font-size: 14px;
+    }
 
     .reverse-previewbox-block:hover .reverse-scroll-text,
-.reverse-previewbox-block:hover .reverse-down-arrow {
-    
-    font-size: 26px;
-    
+    .reverse-previewbox-block:hover .reverse-down-arrow {
+
+        font-size: 26px;
+
+    }
+
+    .reverse-previewbox-block:hover .scroll-text,
+    .reverse-previewbox-block:hover .down-arrow {
+
+        font-size: 26px;
+
+    }
+
+    .reverse-previewbox-block-box {
+        display: flex;
+        flex-direction: column-reverse;
+    }
 }
 
-.reverse-previewbox-block:hover .scroll-text,
-.reverse-previewbox-block:hover .down-arrow {
-    
-    font-size: 26px;
-   
-}
-.reverse-previewbox-block-box{
-    display: flex;
-    flex-direction: column-reverse;
-}
+@media screen and (max-width: 428px) {
+    .reverse-previewbox-block {
+        width: fit-content;
+
+    }
+
+    .reverse-previewbox-block-descriptor {
+        width: fit-content;
+        margin: auto;
+    }
+
+    .reverse-previewbox-block-descriptor label {
+        font-size: 40px;
+    }
 }
