@@ -67,6 +67,14 @@ const EmailModal = ({ isOpen, onClose }) => {
             onChange={(e) => setMessage(e.target.value)}
             required
           />
+
+          <label htmlFor="stephen">Stephen's Field (Test):</label>
+          <textarea
+            id="stephen"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
+
           <div id="button-container-01">
             <button id="send-button-01" type="submit">
               Send
