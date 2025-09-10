@@ -1,0 +1,60 @@
+/* wrapper: two columns, stacks on narrow screens */
+.exp-wrapper {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* ––––– left column: company “tabs” ––––– */
+.exp-tabs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-width: 180px;
+}
+.exp-tabs li {
+  cursor: pointer;
+  padding: 0.4rem 0.75rem;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+.exp-tabs li:hover,
+.exp-tabs li.active {
+  color: var(--link-hover);
+}
+
+/* ––––– right column: detail pane ––––– */
+.exp-detail {
+  display: flex;         /* puts vertical bar + body side-by-side */
+  gap: 1rem;
+  flex: 1 1 300px;       /* grow / shrink nicely */
+}
+
+.vertical-rule {         /* the bar itself */
+  width: 1px;
+  background: var(--border-light);
+  align-self: stretch;   /* always matches the pane’s height */
+}
+
+/* text inside detail pane */
+.exp-body h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.2rem;
+}
+.exp-body h3 span {
+  font-weight: 400;
+}
+.dates {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--card-heading);
+}
+.contributions {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+.contributions li {
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
