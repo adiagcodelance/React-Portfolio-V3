@@ -1,0 +1,70 @@
+backend:
+- name: content
+label: Site Content
+files:
+- name: content_json
+label: Content JSON
+file: public/content.json
+fields:
+- { label: "Hero Name", name: hero.name, widget: string }
+- { label: "Role", name: hero.role, widget: string }
+- { label: "Tagline", name: hero.tagline, widget: text, required: false }
+- { label: "Photo URL", name: hero.photo, widget: string }
+
+
+- { label: "About (blurb)", name: about.blurb, widget: text }
+- label: "About Highlights"
+name: about.highlights
+widget: list
+field: { label: Item, name: item, widget: string }
+
+
+- label: Projects
+name: projects
+widget: list
+fields:
+- { label: Name, name: name, widget: string }
+- { label: Stack, name: stack, widget: string, required: false }
+- { label: Description, name: description, widget: text, required: false }
+- label: Highlights
+name: highlights
+widget: list
+field: { label: Point, name: point, widget: string }
+- { label: Link, name: link, widget: string, required: false }
+
+
+- label: Experience
+name: experience
+widget: list
+fields:
+- { label: Company, name: company, widget: string }
+- { label: Title, name: title, widget: string }
+- { label: Dates, name: dates, widget: string }
+- label: Bullets
+name: bullets
+widget: list
+field: { label: Bullet, name: bullet, widget: string }
+
+
+- label: Certifications
+name: certifications
+widget: list
+fields:
+- { label: Name, name: name, widget: string }
+- { label: Note, name: note, widget: string, required: false }
+
+
+- label: Socials
+name: socials
+widget: object
+fields:
+- { label: GitHub, name: github, widget: string, required: false }
+- { label: LinkedIn, name: linkedin, widget: string, required: false }
+
+
+- label: Contact
+name: contact
+widget: object
+fields:
+- { label: Email, name: email, widget: string }
+- { label: Note, name: note, widget: text, required: false }

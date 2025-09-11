@@ -1,0 +1,64 @@
+{
+"hero": {
+"name": "Aditya Agrawal",
+"role": "Software Engineer",
+"tagline": "I build thoughtful software and delightful workflows.",
+"photo": "/adi_ghibli.jpeg"
+},
+"about": {
+"blurb": "Computer Science grad, tech enthusiast, and avid learner focused on automation, DX, and meaningful products.",
+"highlights": [
+"Workflow automation & DX",
+"FastAPI • React • SQL",
+"Photography & design"
+]
+},
+"projects": [
+{
+"name": "Workflow Automation System",
+"stack": "React, Node, PostgreSQL",
+"description": "Ops automations that boosted productivity by ~30% across teams.",
+"highlights": ["Role-based flows", "Notifications", "Admin dashboard"],
+"link": "#"
+},
+{
+"name": "Customer Feedback Platform",
+"stack": "React, Express, MongoDB",
+"description": "Unified intake, triage, and analytics.",
+"link": "#"
+}
+],
+"experience": [
+{
+"company": "DeepHealth",
+"title": "Software Engineer",
+"dates": "Jun 2024 – Present",
+"bullets": [
+"Cut viewer load time by 34% via caching & lazy assets",
+"Built DICOM-web batch exporter (FastAPI)",
+"Facilitated ML journal club (6 engineers)"
+]
+},
+{
+"company": "Sunly Energy",
+"title": "Data Analyst & IT Assistant",
+"dates": "May 2023 – Jun 2024",
+"bullets": [
+"Tech onboarding/off-boarding",
+"BI automations improved reporting by 40%",
+"Salesforce integrations"
+]
+}
+],
+"certifications": [
+{ "name": "AWS CCP", "note": "In progress" }
+],
+"socials": {
+"github": "https://github.com/yourusername",
+"linkedin": "https://linkedin.com/in/yourusername"
+},
+"contact": {
+"email": "you@example.com",
+"note": "Prefer email or LinkedIn for quick replies."
+}
+}
