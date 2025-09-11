@@ -9,7 +9,7 @@ frontend:
         - npm run build
   artifacts:
     # If this is Vite, keep 'dist'; if CRA (create-react-app), change to 'build'
-    baseDirectory: dist
+    baseDirectory: build
     files:
       - '**/*'
   cache:
