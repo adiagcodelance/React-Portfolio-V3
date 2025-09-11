@@ -8,8 +8,8 @@ export default function Home() {
     { company: "DeepHealth", title: "Software Engineer", dates: "Jun 2024 – Present",
       logo: "/deephealthai_logo.jpeg",
       bullets: ["Added additonal functionality to existing Build process and scripts.", 
-        "Developed enw features and solved bugs in existing RIS application requested by clients",
-        "Developed a Python based GUI to allow easy use of Build scripts, increasing number of developers capabale of starting builds with limited training.",
+        "Developed new features and solved bugs in existing RIS application requested by clients.",
+        "Developed a Python based GUI to allow easy use of Build scripts, increasing number of developers capable of starting builds with limited training.",
         "Documented build process in detail to streamline training and process management and development.",
         "Designed development architecture for ScriptSender source code, allowing easy maintenace and development of ancillary services used with RIS."], 
         tags: ["C#", "SQL", "Java", "Python", "React", "Visual Studio", "Visual Studio Code"] },
@@ -18,7 +18,7 @@ export default function Home() {
       bullets: ["Managed for tech onboarding/offboarding, hardware/software setup, and provided IT support for headquarters and remote franchise operations.",
         "Responsible of tech procurement of both hardware and software to ensure seamless operations.",
         "Continuous Salesforce.com data administration, handling mass data uploads and deletions to maintain data integrity.",
-        "Hardware/software troubleshooting and maintenance for 30+ employeesm including setup of hardware and software.",
+        "Hardware/software troubleshooting and maintenance for 30+ employees including setup of hardware and software.",
         "New Salesforce automations to expand on new applcations process related to franchise business partners.",
         "Created reports and automations for data-driven analyses as a part of business intelligence reporting to support operations and management.",
         "Supported the development APIs (Application Programming Interface) to facilitate data integration between the solar design SAAS (Software as A Service) and Salesforce.com, streamlining processes related to solar application, design, and invoicing.",
@@ -137,8 +137,8 @@ export default function Home() {
         and the impact of building technology that empowers people.
     </p>
     <p className="hero-blurb">
-        Currently, I’m a Software Engineer at DeepHealth, driving performance improvements, workflow automations, managing current build proceess and pipeline
-        and intuitive tooling that empower both engineers and end-users. I currently a strong focus towards learning and specializing in AI, and I am working towards
+        Currently, I’m a Software Engineer at DeepHealth, driving performance improvements, workflow automations, managing current build processes and pipeline
+        and intuitive tooling that empower both engineers and end-users. I currently have a strong focus towards learning and specializing in AI, and I am working towards
         that through courses and projects.
      </p>
   </div>
