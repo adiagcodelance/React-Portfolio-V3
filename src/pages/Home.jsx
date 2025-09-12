@@ -6,7 +6,7 @@ export default function Home() {
   // demo jobs (replace with your own or keep your Experience.js source)
   const jobs = useMemo(() => ([
     { company: "DeepHealth", title: "Software Engineer", dates: "Jun 2024 – Present",
-      logo: "/deephealthai_logo.jpeg",
+      logo: "/dh_logo.jpeg",
       bullets: ["Added additonal functionality to existing Build process and scripts.", 
         "Developed new features and solved bugs in existing RIS application requested by clients.",
         "Developed a Python based GUI to allow easy use of Build scripts, increasing number of developers capable of starting builds with limited training.",
@@ -93,7 +93,7 @@ export default function Home() {
     <div>
         {/* Ghibli icon above name */}
       <img
-        src="/adi_ghibli.jpeg"   // <-- change to your icon path if different
+        src="/adi_g.jpeg"   // <-- change to your icon path if different
         alt="Aditya avatar"
         className="hero-icon"
       />
