@@ -50,8 +50,12 @@
     "server": "node backend/server.js",
     "dev": "concurrently \"npm run server\" \"npm start\"",
     "build:production": "node scripts/build.js",
+    "build:backend": "echo 'Backend build complete'",
+    "start:backend": "node backend/server.js",
+    "postinstall": "if [ \"$RAILWAY\" = \"1\" ]; then npm install --legacy-peer-deps || true; fi",
     "deploy:aws": "node scripts/deploy-aws.js",
-    "deploy:backend": "serverless deploy"
+    "deploy:backend": "serverless deploy",
+    "deploy:railway": "railway up"
   },
   "eslintConfig": {
     "extends": [
