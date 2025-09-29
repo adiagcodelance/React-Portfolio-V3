@@ -5,6 +5,11 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import AdminApp from "./admin/AdminApp";
 
+// Configure Amplify
+import { Amplify } from 'aws-amplify';
+import awsconfig from './aws-exports';
+Amplify.configure(awsconfig);
+
 function App() {
   return (
     <div className="App">

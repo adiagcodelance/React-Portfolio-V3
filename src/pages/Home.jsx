@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Home.css";
 import Experience from "../components/Experience";
 import { api } from "../utils/api";
+import ApiTest from "../components/ApiTest";
 
 export default function Home() {
   // Fallback data in case API fails
@@ -210,6 +211,9 @@ export default function Home() {
           ✅ Live data - Content managed via <a href="/admin" style={{ color: 'white', textDecoration: 'underline' }}>/admin</a>
         </div>
       )}
+      
+      {/* API Test Component - Temporary for testing */}
+      <ApiTest />
       
       {/* scroll progress */}
       <div id="scrollbar" />

@@ -11,6 +11,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "aws-amplify": "^6.15.6",
     "aws-sdk": "^2.1692.0",
     "axios": "^1.4.0",
     "bcryptjs": "^3.0.2",
@@ -52,10 +53,8 @@
     "build:production": "node scripts/build.js",
     "build:backend": "echo 'Backend build complete'",
     "start:backend": "node backend/server.js",
-    "postinstall": "if [ \"$RAILWAY\" = \"1\" ]; then npm install --legacy-peer-deps || true; fi",
     "deploy:aws": "node scripts/deploy-aws.js",
-    "deploy:backend": "serverless deploy",
-    "deploy:railway": "railway up"
+    "deploy:backend": "serverless deploy"
   },
   "eslintConfig": {
     "extends": [

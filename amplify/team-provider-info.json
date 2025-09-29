@@ -1,0 +1,26 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-reactportfoliov3-dev-267a4-authRole",
+      "UnauthRoleArn": "arn:aws:iam::449484686935:role/amplify-reactportfoliov3-dev-267a4-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::449484686935:role/amplify-reactportfoliov3-dev-267a4-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-reactportfoliov3-dev-267a4-deployment",
+      "UnauthRoleName": "amplify-reactportfoliov3-dev-267a4-unauthRole",
+      "StackName": "amplify-reactportfoliov3-dev-267a4",
+      "StackId": "arn:aws:cloudformation:us-east-2:449484686935:stack/amplify-reactportfoliov3-dev-267a4/6d73c280-9cfc-11f0-aa7f-02960f2d2f3d",
+      "AmplifyAppId": "d2jbiqysdlmghd"
+    },
+    "categories": {
+      "function": {
+        "reactportfoliov3307e9a56": {
+          "deploymentBucketName": "amplify-reactportfoliov3-dev-267a4-deployment",
+          "s3Key": "amplify-builds/reactportfoliov3307e9a56-55677a6d2f397a666b6e-build.zip"
+        }
+      },
+      "api": {
+        "portfolioBackend": {}
+      }
+    }
+  }
+}
