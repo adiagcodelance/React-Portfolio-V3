@@ -21,7 +21,7 @@ jobs:
         cache: 'npm'
 
     - name: Install dependencies
-      run: npm ci
+      run: npm ci --legacy-peer-deps
 
     - name: Build React app
       run: npm run build
@@ -44,7 +44,7 @@ jobs:
     - name: Deploy backend to Lambda
       run: |
         # Install serverless globally
-        npm install -g serverless
+        npm install -g serverless --legacy-peer-deps
         
         # Set environment variables
         export DATABASE_URL="${{ secrets.DATABASE_URL }}"
