@@ -3,13 +3,26 @@ frontend:
   phases:
     preBuild:
       commands:
-        - echo Using Node 18 via nvm
-        - nvm install 18
-        - nvm use 18
-        - node -v
-        - npm -v
-        - echo Installing dependencies with legacy peer deps (include dev deps for build)
-        - npm ci --legacy-peer-deps
+        - echo "Node version: $(node -v)"
+        - echo "NPM version: $(npm -v)"
+        - echo "Installing dependencies with legacy peer deps (including dev dependencies)"
+        - npm install --legacy-peer-deps
+    build:
+      commands:
+        - echo "Building React app..."
+        - npm run build
+  artifacts:
+    baseDirectory: build
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
+  phases:
+    preBuild:
+      commands:
+        - echo Installing dependencies with legacy peer deps
+        - npm install --legacy-peer-deps
     build:
       commands:
         - echo Building React app...
