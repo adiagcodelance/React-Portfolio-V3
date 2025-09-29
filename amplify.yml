@@ -3,13 +3,9 @@ frontend:
   phases:
     preBuild:
       commands:
-        - echo "Node version is $(node -v)"
-        - echo "NPM version is $(npm -v)"
-        - echo "Installing dependencies with legacy peer deps"
-        - npm install --legacy-peer-deps
+        - npm install
     build:
       commands:
-        - echo "Building React app"
         - npm run build
   artifacts:
     baseDirectory: build
