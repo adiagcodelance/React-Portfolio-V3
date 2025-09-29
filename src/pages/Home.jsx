@@ -1,10 +1,11 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import "./Home.css";
 import Experience from "../components/Experience";
+import { api } from "../utils/api";
 
 export default function Home() {
-  // demo jobs (replace with your own or keep your Experience.js source)
-  const jobs = useMemo(() => ([
+  // Fallback data in case API fails
+  const fallbackJobs = [
     { company: "DeepHealth", title: "Software Engineer", dates: "Jun 2024 – Present",
       logo: "/dh_logo.png",
       bullets: ["Added additonal functionality to existing Build process and scripts.", 
@@ -34,7 +35,78 @@ export default function Home() {
         ],
         tags: ["IT", "Sales", "Stocking", "RetailMagic"]
     }
-  ]), []);
+  ];
+
+  const fallbackProjects = [
+    { name: "Folio", desc: "IOS App, built to allow cross functionality between built in calendar tool and a notes system for clear organization.",
+         tags: ["Swift", "Xcode", "Apple"], gh: "https://github.com/adiagcodelance/Folio", ext: "https://github.com/adiagcodelance/Folio" },
+    { name: "University Capstone - Telling Stories", desc: "Goal was to develop a web service that allowed our client the ability to create a unique educational H5P content that could be pushed to mediums such as Pressbooks and Moodle.",
+         tags: ["HTML5", "JSX", "React", "H5P", "Visual Studio"], gh: "https://github.com/adiagcodelance/CS-4820-Telling-Stories", ext: "https://github.com/adiagcodelance/CS-4820-Telling-Stories" },
+    { name: "App Development Project - Assignment Planner App", desc: "Assignment planner was an app developed with the goal of providing students a dedicated planner app with tools to help plan their academic assignments.",
+         tags: ["Flutter", "Java", "Android", "Android Studio"], gh: "https://github.com/adiagcodelance/Assignment-Planner-", ext: "https://github.com/adiagcodelance/Assignment-Planner-" },
+  ];
+
+  const fallbackCertifications = [
+    { logo: "/datacamp.png", name: "Artifical Intelligence (AI)", desc: "Being able to identify the uses cases for different sub-domains of AI. Being able to explain Generative AI and common terminology of the domain. Being able to construct simple prompts for generative AI tools and being able to explain the ethical considerations that apply to AI and generative AI solutions.", tags: ["AI", "AI Architecture", "Machine Learning", "Generative AI"], ext: "https://www.datacamp.com/skill-verification/AIF0028742102106" },
+    { logo: "/datacamp.png", name: "SQL Associate", desc: "At the associate level, data management tasks relate mostly to data cleaning and processing. This includes identifying data quality issues, performing transformations and being able to work with data from multiple sources, typically multiple database tables. For the large part, these tasks are performed in SQL. This skill was tested through a hands-on SQL coding challenge. The individual was required to code specific cleaning and transformation tasks that can be applied to a given data source. This candidate was comfortable in calculatings metrics to effectively report characteristics of data and relationships between features using PostgreSQL. This skill was primarily tested through a hands-on SQL coding challenge.", tags: ["SQL", "MySQL", "PostegreSQL", "Database Management"], ext: "https://www.datacamp.com/certificate/SQA0013747867975" },
+    { logo: "", name: "Canon Beginner Photography Course", desc: "Completed Canon's online beginner photography course covering fundamentals of photography including exposure, composition, and camera settings.", tags: ["Photography", "Camera Settings", "Composition"], ext: "#" },
+    { logo: "", name: "Microsoft Office Suite", desc: "Completed Microsoft Office Suite training covering Word, Excel, PowerPoint, and Outlook.", tags: ["Microsoft Word", "Microsoft Excel", "Microsoft PowerPoint", "Microsoft Outlook"], ext: "#" },
+  ];
+
+  // State for API data
+  const [jobs, setJobs] = useState(fallbackJobs);
+  const [otherProjects, setOtherProjects] = useState(fallbackProjects);
+  const [certifications, setCertifications] = useState(fallbackCertifications);
+  const [loading, setLoading] = useState(false);
+  const [usingFallbackData, setUsingFallbackData] = useState(true);
+
+  // Try to load data from API, but keep fallback data if it fails
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const [experienceData, projectsData, certificationsData] = await Promise.all([
+          api.getExperiences(),
+          api.getProjects(),
+          api.getCertifications(),
+        ]);
+        
+        // Check if we got valid data from all endpoints
+        const hasValidExperience = experienceData && Array.isArray(experienceData) && experienceData.length > 0;
+        const hasValidProjects = projectsData && Array.isArray(projectsData) && projectsData.length > 0;
+        const hasValidCertifications = certificationsData && Array.isArray(certificationsData) && certificationsData.length > 0;
+        
+        if (hasValidExperience && hasValidProjects && hasValidCertifications) {
+          // All data is valid, update everything and mark as using API data
+          setJobs(experienceData);
+          setOtherProjects(projectsData.map(project => ({
+            name: project.name,
+            desc: project.description,
+            tags: project.tags || [],
+            gh: project.githubUrl,
+            ext: project.externalUrl
+          })));
+          setCertifications(certificationsData.map(cert => ({
+            logo: cert.logo || '',
+            name: cert.name,
+            desc: cert.description,
+            tags: cert.tags || [],
+            ext: cert.externalUrl
+          })));
+          setUsingFallbackData(false);
+        } else {
+          setUsingFallbackData(true);
+        }
+      } catch (error) {
+        console.error('API failed, using fallback data:', error);
+        setUsingFallbackData(true);
+        // Keep the fallback data that was set in useState
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    loadData();
+  }, []);
 
   // Active left-nav + reveals + scroll progress
   useEffect(() => {
@@ -67,24 +139,78 @@ export default function Home() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const otherProjects = [
-    { name: "Folio", desc: "IOS App, built to allow cross functionality between built in calendar tool and a notes system for clear organization.",
-         tags: ["Swift", "Xcode", "Apple"], gh: "https://github.com/adiagcodelance/Folio", ext: "https://github.com/adiagcodelance/Folio" },
-    { name: "University Capstone - Telling Stories", desc: "Goal was to develop a web service that allowed our client the ability to create a unique educational H5P content that could be pushed to mediums such as Pressbooks and Moodle.",
-         tags: ["HTML5", "JSX", "React", "H5P", "Visual Studio"], gh: "https://github.com/adiagcodelance/CS-4820-Telling-Stories", ext: "https://github.com/adiagcodelance/CS-4820-Telling-Stories" },
-    { name: "App Development Project - Assignment Planner App", desc: "Assignment planner was an app developed with the goal of providing students a dedicated planner app with tools to help plan their academic assignments.",
-         tags: ["Flutter", "Java", "Android", "Android Studio"], gh: "https://github.com/adiagcodelance/Assignment-Planner-", ext: "https://github.com/adiagcodelance/Assignment-Planner-" },
-  ];
 
-  const certifications = [
-    { logo: "/datacamp.png", name: "Artifical Intelligence (AI)", desc: "Being able to identify the uses cases for different sub-domains of AI. Being able to explain Generative AI and common terminology of the domain. Being able to construct simple prompts for generative AI tools and being able to explain the ethical considerations that apply to AI and generative AI solutions.", tags: ["AI", "AI Architecture", "Machine Learning", "Generative AI"], ext: "https://www.datacamp.com/skill-verification/AIF0028742102106" },
-    { logo: "/datacamp.png", name: "SQL Associate", desc: "At the associate level, data management tasks relate mostly to data cleaning and processing. This includes identifying data quality issues, performing transformations and being able to work with data from multiple sources, typically multiple database tables. For the large part, these tasks are performed in SQL. This skill was tested through a hands-on SQL coding challenge. The individual was required to code specific cleaning and transformation tasks that can be applied to a given data source. This candidate was comfortable in calculatings metrics to effectively report characteristics of data and relationships between features using PostgreSQL. This skill was primarily tested through a hands-on SQL coding challenge.", tags: ["SQL", "MySQL", "PostegreSQL", "Database Management"], ext: "https://www.datacamp.com/certificate/SQA0013747867975" },
-    { logo: "", name: "Canon Beginner Photography Course", desc: "Completed Canon's online beginner photography course covering fundamentals of photography including exposure, composition, and camera settings.", tags: ["Photography", "Camera Settings", "Composition"], ext: "#" },
-    { logo: "", name: "Microsoft Office Suite", desc: "Completed Microsoft Office Suite training covering Word, Excel, PowerPoint, and Outlook.", tags: ["Microsoft Word", "Microsoft Excel", "Microsoft PowerPoint", "Microsoft Outlook"], ext: "#" },
-  ];
+  // Show loading state while fetching data
+  if (loading) {
+    return (
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100vh',
+        fontFamily: 'Inter, ui-sans-serif, system-ui',
+        color: 'var(--text-body)'
+      }}>
+        <div style={{ textAlign: 'center' }}>
+          <div style={{
+            width: '40px',
+            height: '40px',
+            border: '3px solid var(--border-soft)',
+            borderTop: '3px solid var(--accent)',
+            borderRadius: '50%',
+            animation: 'spin 1s linear infinite',
+            margin: '0 auto 1rem'
+          }}></div>
+          <p>Loading portfolio...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div className="layout">
+    <div className="layout" style={{ paddingTop: usingFallbackData ? '50px' : '35px' }}>
+      {/* Data Status Banner */}
+      {usingFallbackData && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          background: 'linear-gradient(135deg, #ff6b6b, #ffa500)',
+          color: 'white',
+          padding: '8px 16px',
+          textAlign: 'center',
+          fontSize: '0.9rem',
+          fontWeight: '600',
+          zIndex: 10000,
+          boxShadow: '0 2px 8px rgba(0,0,0,0.15)'
+        }}>
+          ⚠️ Displaying cached data - Content management system unavailable
+          <span style={{ marginLeft: '16px', fontSize: '0.8rem', opacity: 0.9 }}>
+            Visit <a href="/admin" style={{ color: 'white', textDecoration: 'underline' }}>/admin</a> to manage content
+          </span>
+        </div>
+      )}
+      
+      {!usingFallbackData && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          background: 'linear-gradient(135deg, #4CAF50, #45a049)',
+          color: 'white',
+          padding: '6px 16px',
+          textAlign: 'center',
+          fontSize: '0.85rem',
+          fontWeight: '500',
+          zIndex: 10000,
+          boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+        }}>
+          ✅ Live data - Content managed via <a href="/admin" style={{ color: 'white', textDecoration: 'underline' }}>/admin</a>
+        </div>
+      )}
+      
       {/* scroll progress */}
       <div id="scrollbar" />
       {/* sticky left nav */}

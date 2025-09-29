@@ -1,0 +1,45 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      - echo Installing dependencies...
+      - npm install
+
+  pre_build:
+    commands:
+      - echo Pre-build phase started on `date`
+      - echo Installing backend dependencies...
+      - cd backend && npm install --production && cd ..
+
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building React application...
+      - npm run build
+      - echo Preparing backend for deployment...
+      - mkdir -p dist
+      - cp -r backend dist/
+      - cp package.json dist/
+      - cp -r build dist/frontend
+      - echo Creating deployment package...
+
+  post_build:
+    commands:
+      - echo Build completed on `date`
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: dist
+  name: portfolio-cms-$(date +%Y-%m-%d)
+
+environment_variables:
+  plaintext:
+    NODE_ENV: production
+  parameter-store:
+    DATABASE_URL: /portfolio/database-url
+    JWT_SECRET: /portfolio/jwt-secret
+    FRONTEND_URL: /portfolio/frontend-url

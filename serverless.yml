@@ -1,0 +1,123 @@
+service: portfolio-cms-backend
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  stage: ${opt:stage, 'prod'}
+  region: ${opt:region, 'us-east-1'}
+  memorySize: 512
+  timeout: 30
+  environment:
+    NODE_ENV: production
+    JWT_SECRET: ${env:JWT_SECRET}
+    DB_DIALECT: postgres
+    DATABASE_URL: ${env:DATABASE_URL}
+    FRONTEND_URL: ${env:FRONTEND_URL}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - rds:*
+      Resource: "*"
+    - Effect: Allow
+      Action:
+        - s3:GetObject
+        - s3:PutObject
+        - s3:DeleteObject
+      Resource: "arn:aws:s3:::${self:custom.uploadsBucket}/*"
+
+custom:
+  uploadsBucket: ${self:service}-${self:provider.stage}-uploads
+  serverless-offline:
+    httpPort: 5001
+
+plugins:
+  - serverless-offline
+  - serverless-dotenv-plugin
+
+functions:
+  api:
+    handler: backend/lambda.handler
+    events:
+      - http:
+          path: /{proxy+}
+          method: ANY
+          cors:
+            origin: ${env:FRONTEND_URL}
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true
+
+resources:
+  Resources:
+    # S3 Bucket for file uploads
+    UploadsBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:custom.uploadsBucket}
+        CorsConfiguration:
+          CorsRules:
+            - AllowedHeaders:
+                - "*"
+              AllowedMethods:
+                - GET
+                - PUT
+                - POST
+                - DELETE
+              AllowedOrigins:
+                - ${env:FRONTEND_URL}
+        PublicAccessBlockConfiguration:
+          BlockPublicAcls: false
+          BlockPublicPolicy: false
+          IgnorePublicAcls: false
+          RestrictPublicBuckets: false
+
+    # RDS PostgreSQL Database
+    PortfolioDB:
+      Type: AWS::RDS::DBInstance
+      Properties:
+        DBInstanceIdentifier: ${self:service}-${self:provider.stage}
+        DBName: portfoliodb
+        Engine: postgres
+        EngineVersion: '15.4'
+        DBInstanceClass: db.t3.micro
+        AllocatedStorage: 20
+        MasterUsername: ${env:DB_USERNAME}
+        MasterUserPassword: ${env:DB_PASSWORD}
+        VPCSecurityGroups:
+          - !Ref DatabaseSecurityGroup
+        PubliclyAccessible: true
+        DeletionProtection: false
+
+    # Security Group for RDS
+    DatabaseSecurityGroup:
+      Type: AWS::EC2::SecurityGroup
+      Properties:
+        GroupDescription: Security group for Portfolio DB
+        SecurityGroupIngress:
+          - IpProtocol: tcp
+            FromPort: 5432
+            ToPort: 5432
+            CidrIp: 0.0.0.0/0
+
+  Outputs:
+    ApiUrl:
+      Description: API Gateway endpoint URL
+      Value:
+        Fn::Join:
+          - ''
+          - - https://
+            - Ref: RestApiApigEvent
+            - .execute-api.
+            - ${self:provider.region}
+            - .amazonaws.com/
+            - ${self:provider.stage}
+    
+    UploadsBucketName:
+      Description: S3 bucket for uploads
+      Value: ${self:custom.uploadsBucket}

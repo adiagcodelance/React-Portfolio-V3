@@ -3,3 +3,38 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
+
+// Mock IntersectionObserver which is not available in test environment
+global.IntersectionObserver = class IntersectionObserver {
+  constructor() {}
+
+  observe() {
+    return null;
+  }
+
+  disconnect() {
+    return null;
+  }
+
+  unobserve() {
+    return null;
+  }
+};
+
+// Mock fetch since it's used in your app
+global.fetch = jest.fn();
+
+// Mock window.matchMedia which is used by some components
+Object.defineProperty(window, 'matchMedia', {
+  writable: true,
+  value: jest.fn().mockImplementation(query => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addListener: jest.fn(), // deprecated
+    removeListener: jest.fn(), // deprecated
+    addEventListener: jest.fn(),
+    removeEventListener: jest.fn(),
+    dispatchEvent: jest.fn(),
+  })),
+});

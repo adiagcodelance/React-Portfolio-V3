@@ -309,6 +309,12 @@ h1,h2,h3{color:var(--text-strong); margin:0 0 .3rem}
 /* ============== Scroll bar ============== */
 #scrollbar{position:fixed; top:0; left:0; height:3px; width:0; background:var(--accent); z-index:9999; transition:width .1s linear}
 
+/* ============== Loading Animation ============== */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 /* ============== Responsive ============== */
 @media (max-width:1080px){
   .layout{grid-template-columns:1fr; gap:42px; padding:64px 20px 96px}
