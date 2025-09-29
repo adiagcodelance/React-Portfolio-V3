@@ -43,3 +43,16 @@ amplifytools.xcconfig
 .secret-*
 **.sample
 #amplify-do-not-edit-end
+
+# Visual Studio files
+.vs/
+*.sqlite
+
+# Environment files
+.env
+.env.aws
+.env.production
+
+# Large packages
+*.pkg
+*.dmg
