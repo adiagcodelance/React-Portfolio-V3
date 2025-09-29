@@ -1,14 +1,18 @@
 version: 1
 frontend:
   phases:
-    install:
-      runtime-versions:
-        node: '18'
     preBuild:
       commands:
-        - npm install --legacy-peer-deps --production
+        - echo Using Node 18 via nvm
+        - nvm install 18
+        - nvm use 18
+        - node -v
+        - npm -v
+        - echo Installing dependencies with legacy peer deps (include dev deps for build)
+        - npm ci --legacy-peer-deps
     build:
       commands:
+        - echo Building React app...
         - npm run build
   artifacts:
     baseDirectory: build
