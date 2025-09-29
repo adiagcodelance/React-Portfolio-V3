@@ -1,6 +1,9 @@
 version: 1
 frontend:
   phases:
+    install:
+      runtime-versions:
+        node: '18'
     preBuild:
       commands:
         - npm install --legacy-peer-deps --production
