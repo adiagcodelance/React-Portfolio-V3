@@ -5,27 +5,11 @@ frontend:
       commands:
         - echo "Node version: $(node -v)"
         - echo "NPM version: $(npm -v)"
-        - echo "Installing dependencies with legacy peer deps (including dev dependencies)"
+        - echo "Installing dependencies with legacy peer deps"
         - npm install --legacy-peer-deps
     build:
       commands:
         - echo "Building React app..."
-        - npm run build
-  artifacts:
-    baseDirectory: build
-    files:
-      - '**/*'
-  cache:
-    paths:
-      - node_modules/**/*
-  phases:
-    preBuild:
-      commands:
-        - echo Installing dependencies with legacy peer deps
-        - npm install --legacy-peer-deps
-    build:
-      commands:
-        - echo Building React app...
         - npm run build
   artifacts:
     baseDirectory: build
