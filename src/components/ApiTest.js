@@ -11,7 +11,7 @@ const ApiTest = () => {
     setLoading(true);
     try {
       const response = await client.get({
-        apiName: 'portfolioBackend',
+        apiName: 'emailapi',
         path: '/api'
       });
       setResponse({ type: 'GET', data: response });
@@ -21,11 +21,25 @@ const ApiTest = () => {
     setLoading(false);
   };
 
+  const testHealth = async () => {
+    setLoading(true);
+    try {
+      const response = await client.get({
+        apiName: 'emailapi',
+        path: '/api/health'
+      });
+      setResponse({ type: 'HEALTH', data: response });
+    } catch (error) {
+      setResponse({ type: 'HEALTH', error: error.message });
+    }
+    setLoading(false);
+  };
+
   const testPostAPI = async () => {
     setLoading(true);
     try {
       const response = await client.post({
-        apiName: 'portfolioBackend',
+        apiName: 'emailapi',
         path: '/api',
         options: {
           body: { message: 'Hello from React!', timestamp: new Date().toISOString() }
@@ -46,8 +60,11 @@ const ApiTest = () => {
         <button onClick={testGetAPI} disabled={loading} style={{ marginRight: '10px' }}>
           {loading ? 'Testing...' : 'Test GET'}
         </button>
-        <button onClick={testPostAPI} disabled={loading}>
+        <button onClick={testPostAPI} disabled={loading} style={{ marginRight: '10px' }}>
           {loading ? 'Testing...' : 'Test POST'}
+        </button>
+        <button onClick={testHealth} disabled={loading}>
+          {loading ? 'Testing...' : 'Health Check'}
         </button>
       </div>
 

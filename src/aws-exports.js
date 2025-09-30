@@ -6,7 +6,7 @@ const awsmobile = {
     "aws_cloud_logic_custom": [
         {
             "name": "emailapi",
-            "endpoint": "https://lvw1juyfr3.execute-api.us-east-2.amazonaws.com/staging",
+            "endpoint": "https://l5aue4kmb1.execute-api.us-east-2.amazonaws.com/dev",
             "region": "us-east-2"
         }
     ]
