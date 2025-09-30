@@ -80,16 +80,7 @@
         },
         "Runtime": "nodejs18.x",
         "Layers": [],
-        "Timeout": 25,
-        "VpcConfig": {
-          "SecurityGroupIds": [
-            "sg-03727b31ba9dfb70a"
-          ],
-          "SubnetIds": [
-            "subnet-0605e624d2a9257a7",
-            "subnet-0f939379f74dfb612"
-          ]
-        }
+        "Timeout": 25
       }
     },
     "LambdaExecutionRole": {
@@ -128,10 +119,7 @@
               ]
             }
           ]
-        },
-        "ManagedPolicyArns": [
-          "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
-        ]
+        }
       }
     },
     "lambdaexecutionpolicy": {
