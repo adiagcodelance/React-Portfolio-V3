@@ -36,10 +36,30 @@ const limiter = rateLimit({
 app.use(helmet({
   contentSecurityPolicy: false,
 }));
-app.use(cors({
-  origin: process.env.FRONTEND_URL || true,
+
+// Flexible CORS: allow multiple origins via env (comma-separated) or "*" to allow all
+const allowedOriginsEnv = process.env.ALLOWED_ORIGINS || process.env.FRONTEND_URL || '';
+const allowedOrigins = allowedOriginsEnv
+  .split(',')
+  .map(s => s.trim())
+  .filter(Boolean);
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Allow non-browser requests (no Origin header)
+    if (!origin) return callback(null, true);
+    // Allow all if explicitly configured
+    if (allowedOriginsEnv === '*') return callback(null, true);
+    // If no list provided, default allow
+    if (allowedOrigins.length === 0) return callback(null, true);
+    // Allow if origin in list
+    if (allowedOrigins.includes(origin)) return callback(null, true);
+    return callback(new Error('Not allowed by CORS'));
+  },
   credentials: true,
-}));
+};
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
+
 app.use(limiter);
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
