@@ -1,0 +1,43 @@
+{
+  "api": {
+    "emailapi": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "reactportfoliov365f5ecce"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "function": {
+    "reactportfoliov365f5ecce": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_reactportfoliov365f5ecce_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "reactportfoliov365f5ecce"
+        }
+      ]
+    },
+    "AMPLIFY_function_reactportfoliov365f5ecce_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "reactportfoliov365f5ecce"
+        }
+      ]
+    }
+  }
+}

@@ -5,8 +5,8 @@ const awsmobile = {
     "aws_project_region": "us-east-2",
     "aws_cloud_logic_custom": [
         {
-            "name": "portfolioBackend",
-            "endpoint": "https://cjs2rpdm89.execute-api.us-east-2.amazonaws.com/dev",
+            "name": "emailapi",
+            "endpoint": "https://lvw1juyfr3.execute-api.us-east-2.amazonaws.com/staging",
             "region": "us-east-2"
         }
     ]

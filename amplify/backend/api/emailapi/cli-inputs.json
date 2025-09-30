@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/api": {
+      "name": "/api",
+      "lambdaFunction": "reactportfoliov365f5ecce",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}
