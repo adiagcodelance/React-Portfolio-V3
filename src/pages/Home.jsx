@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./Home.css";
 import Experience from "../components/Experience";
 import { api } from "../utils/api";
-import ApiTest from "../components/ApiTest";
 
 export default function Home() {
   // Fallback data in case API fails
