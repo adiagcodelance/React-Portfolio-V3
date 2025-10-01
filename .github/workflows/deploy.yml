@@ -24,6 +24,8 @@ jobs:
       run: npm ci --legacy-peer-deps
 
     - name: Build React app
+      env:
+        REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
       run: npm run build
 
     - name: Configure AWS credentials
