@@ -3,6 +3,7 @@ frontend:
   phases:
     preBuild:
       commands:
+        - echo "REACT_APP_API_URL=https://l5aue4kmb1.execute-api.us-east-2.amazonaws.com/dev/api" > .env.production
         - npm install --legacy-peer-deps
     build:
       commands:
