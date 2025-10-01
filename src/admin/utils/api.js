@@ -59,7 +59,8 @@ export const auth = {
   
   logout: () => {
     removeToken();
-    window.location.href = '/admin/login';
+    // Return to public home page on logout
+    window.location.href = '/';
   },
   
   getUser: () => makeRequest('/auth/me'),

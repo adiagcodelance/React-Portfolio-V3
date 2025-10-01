@@ -1,6 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const { body, validationResult } = require('express-validator');
+const { Op } = require('sequelize');
 const { User } = require('../models');
 const { generateToken, authenticateToken, requireAdmin } = require('../middleware/auth');
 
@@ -23,7 +24,7 @@ router.post('/register', [
     // Check if user already exists
     const existingUser = await User.findOne({
       where: {
-        $or: [{ username }, { email }]
+        [Op.or]: [{ username }, { email }]
       }
     });
 
@@ -69,10 +70,17 @@ router.post('/login', [
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { username, password } = req.body;
+    const { username, password } = req.body; // username can be username or email
 
-    // Find user
-    const user = await User.findOne({ where: { username } });
+    // Find user by username OR email
+    const user = await User.findOne({
+      where: {
+        [Op.or]: [
+          { username },
+          { email: username },
+        ],
+      },
+    });
     if (!user) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
@@ -147,6 +155,22 @@ router.post('/init', async (req, res) => {
     });
   } catch (error) {
     console.error('Init error:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Admin-only: delete user by username
+router.delete('/users/by-username/:username', authenticateToken, requireAdmin, async (req, res) => {
+  try {
+    const { username } = req.params;
+    const user = await User.findOne({ where: { username } });
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    await user.destroy();
+    res.json({ message: 'User deleted successfully' });
+  } catch (error) {
+    console.error('Delete user error:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });

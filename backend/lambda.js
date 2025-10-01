@@ -21,6 +21,9 @@ const bulkRoutes = require('./routes/bulk');
 
 const app = express();
 
+// Trust proxy so express-rate-limit can parse X-Forwarded-For behind API Gateway/ALB
+app.set('trust proxy', true);
+
 // Configure AWS S3 for file uploads
 const s3 = new AWS.S3();
 const UPLOADS_BUCKET = process.env.UPLOADS_BUCKET || 'portfolio-cms-prod-uploads';

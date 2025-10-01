@@ -23,8 +23,12 @@ const Login = ({ onLogin }) => {
 
     try {
       const response = await auth.login(formData);
-      if (response?.user) {
+      // Treat presence of token as success (backend returns both token and user)
+      const hasToken = !!localStorage.getItem('adminToken') || !!response?.token;
+      if (hasToken) {
         onLogin();
+      } else {
+        setError('Login failed');
       }
     } catch (err) {
       setError(err.message || 'Login failed');
@@ -46,34 +50,38 @@ const Login = ({ onLogin }) => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: '#f5f5f5',
-      fontFamily: 'system-ui, -apple-system, sans-serif'
+      background: 'var(--bg-body, #fff)',
+      fontFamily: 'Inter, ui-sans-serif, system-ui, -apple-system'
     }}>
       <div style={{
-        backgroundColor: 'white',
-        padding: '2rem',
-        borderRadius: '8px',
-        boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+        background: 'var(--surface, #f9fafb)',
+        padding: '28px',
+        borderRadius: '12px',
+        boxShadow: 'var(--shadow-md, 0 10px 25px -8px #0000001f)',
         width: '100%',
-        maxWidth: '400px'
+        maxWidth: '420px',
+        border: '1px solid var(--border, #e5e7eb)'
       }}>
         <h1 style={{
           textAlign: 'center',
-          marginBottom: '2rem',
-          color: '#333'
+          marginBottom: '18px',
+          color: 'var(--headline, #111827)',
+          fontSize: '22px'
         }}>
           Admin Login
         </h1>
 
         <form onSubmit={handleSubmit}>
-          <div style={{ marginBottom: '1rem' }}>
+          <div style={{ marginBottom: '14px' }}>
             <label style={{ 
               display: 'block', 
-              marginBottom: '0.5rem',
-              fontWeight: 'bold',
-              color: '#555'
+              marginBottom: '6px',
+              fontWeight: 700,
+              color: 'var(--text, #374151)',
+              fontSize: '13px',
+              letterSpacing: '.02em'
             }}>
-              Username
+              Email or Username
             </label>
             <input
               type="text"
@@ -83,21 +91,23 @@ const Login = ({ onLogin }) => {
               required
               style={{
                 width: '100%',
-                padding: '0.75rem',
-                border: '1px solid #ddd',
-                borderRadius: '4px',
-                fontSize: '1rem',
-                boxSizing: 'border-box'
+                padding: '12px 14px',
+                border: '1px solid var(--border, #e5e7eb)',
+                borderRadius: '8px',
+                fontSize: '14px',
+                outline: 'none'
               }}
             />
           </div>
 
-          <div style={{ marginBottom: '1.5rem' }}>
+          <div style={{ marginBottom: '18px' }}>
             <label style={{ 
               display: 'block', 
-              marginBottom: '0.5rem',
-              fontWeight: 'bold',
-              color: '#555'
+              marginBottom: '6px',
+              fontWeight: 700,
+              color: 'var(--text, #374151)',
+              fontSize: '13px',
+              letterSpacing: '.02em'
             }}>
               Password
             </label>
@@ -109,23 +119,24 @@ const Login = ({ onLogin }) => {
               required
               style={{
                 width: '100%',
-                padding: '0.75rem',
-                border: '1px solid #ddd',
-                borderRadius: '4px',
-                fontSize: '1rem',
-                boxSizing: 'border-box'
+                padding: '12px 14px',
+                border: '1px solid var(--border, #e5e7eb)',
+                borderRadius: '8px',
+                fontSize: '14px',
+                outline: 'none'
               }}
             />
           </div>
 
           {error && (
             <div style={{
-              backgroundColor: '#fee',
-              color: '#c33',
-              padding: '0.75rem',
-              borderRadius: '4px',
-              marginBottom: '1rem',
-              border: '1px solid #fcc'
+              background: 'rgba(220,53,69,0.07)',
+              color: '#7f1d1d',
+              padding: '10px 12px',
+              borderRadius: '8px',
+              marginBottom: '12px',
+              border: '1px solid rgba(220,53,69,0.25)',
+              fontSize: '13px'
             }}>
               {error}
             </div>
@@ -136,32 +147,22 @@ const Login = ({ onLogin }) => {
             disabled={loading}
             style={{
               width: '100%',
-              padding: '0.75rem',
-              backgroundColor: loading ? '#ccc' : '#007bff',
-              color: 'white',
-              border: 'none',
-              borderRadius: '4px',
-              fontSize: '1rem',
+              padding: '12px 14px',
+              background: 'var(--accent, #d97706)',
+              color: 'var(--accent-contrast, #0b1220)',
+              border: '1px solid var(--accent, #d97706)',
+              borderRadius: '10px',
+              fontSize: '14px',
+              fontWeight: 800,
               cursor: loading ? 'not-allowed' : 'pointer',
-              transition: 'background-color 0.2s'
+              transition: 'transform .06s ease',
             }}
+            onMouseDown={(e) => e.currentTarget.style.transform = 'translateY(1px)'}
+            onMouseUp={(e) => e.currentTarget.style.transform = 'translateY(0)'}
           >
-            {loading ? 'Logging in...' : 'Login'}
+            {loading ? 'Logging in…' : 'Login'}
           </button>
         </form>
-
-        <div style={{
-          marginTop: '2rem',
-          padding: '1rem',
-          backgroundColor: '#f8f9fa',
-          borderRadius: '4px',
-          fontSize: '0.875rem',
-          color: '#666'
-        }}>
-          <strong>Default credentials:</strong><br />
-          Username: admin<br />
-          Password: admin123
-        </div>
       </div>
     </div>
   );

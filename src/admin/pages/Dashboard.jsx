@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { auth, experienceApi, projectsApi, certificationsApi, bulkApi } from '../utils/api';
 
 const Dashboard = () => {
@@ -52,22 +53,24 @@ const Dashboard = () => {
   }
 
   const tabStyle = (isActive) => ({
-    padding: '0.75rem 1.5rem',
-    backgroundColor: isActive ? '#007bff' : '#f8f9fa',
-    color: isActive ? 'white' : '#333',
-    border: '1px solid #ddd',
+    padding: '10px 16px',
+    background: isActive ? 'var(--accent, #d97706)' : 'var(--surface, #f9fafb)',
+    color: isActive ? 'var(--accent-contrast, #0b1220)' : 'var(--text, #374151)',
+    border: '1px solid var(--border, #e5e7eb)',
     cursor: 'pointer',
-    borderRadius: '0',
-    fontSize: '0.9rem'
+    borderRadius: 8,
+    fontSize: '13px',
+    fontWeight: 700,
+    marginRight: 8
   });
 
   const cardStyle = {
-    backgroundColor: 'white',
-    border: '1px solid #ddd',
-    borderRadius: '8px',
-    padding: '1.5rem',
-    marginBottom: '1rem',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+    background: 'var(--surface, #fdfcf7)',
+    border: '1px solid var(--border, #e5e7eb)',
+    borderRadius: '10px',
+    padding: '18px',
+    marginBottom: '12px',
+    boxShadow: 'var(--shadow-sm, 0 4px 14px -8px #0000001f)'
   };
 
   return (
@@ -78,25 +81,36 @@ const Dashboard = () => {
     }}>
       {/* Header */}
       <div style={{
-        backgroundColor: 'white',
-        borderBottom: '1px solid #ddd',
-        padding: '1rem 2rem',
+        background: 'var(--panel, #f9fafb)',
+        borderBottom: '1px solid var(--border, #e5e7eb)',
+        padding: '12px 20px',
         display: 'flex',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
+        position: 'sticky', top: 0, zIndex: 100
       }}>
-        <h1 style={{ margin: 0, color: '#333' }}>Portfolio Admin</h1>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <span>Welcome, {user?.username}</span>
+        <h1 style={{ margin: 0, color: 'var(--headline, #111827)', fontSize: 18 }}>Portfolio Admin</h1>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <Link to="/" style={{
+            padding: '6px 10px',
+            border: '1px solid var(--accent, #d97706)',
+            color: 'var(--accent, #d97706)',
+            borderRadius: 6,
+            textDecoration: 'none',
+            fontWeight: 600,
+            fontSize: 13
+          }}>Back to site</Link>
+          <span style={{ color: 'var(--text, #374151)', fontSize: 14 }}>Hi, {user?.username}</span>
           <button
             onClick={handleLogout}
             style={{
-              padding: '0.5rem 1rem',
-              backgroundColor: '#dc3545',
-              color: 'white',
+              padding: '6px 10px',
+              background: 'var(--accent, #d97706)',
+              color: 'var(--accent-contrast, #0b1220)',
               border: 'none',
-              borderRadius: '4px',
-              cursor: 'pointer'
+              borderRadius: 6,
+              cursor: 'pointer',
+              fontWeight: 700
             }}
           >
             Logout

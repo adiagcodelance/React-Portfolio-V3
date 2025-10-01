@@ -21,6 +21,9 @@ const bulkRoutes = require('./routes/bulk');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// Trust proxy so express-rate-limit can parse X-Forwarded-For behind API Gateway/ALB
+app.set('trust proxy', true);
+
 // Rate limiting (relaxed for development)
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes

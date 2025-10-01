@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import { isAuthenticated } from './utils/api';
@@ -6,15 +7,18 @@ import { isAuthenticated } from './utils/api';
 const AdminApp = () => {
   const [authenticated, setAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // Check if user is authenticated on app load
     setAuthenticated(isAuthenticated());
     setLoading(false);
-  }, []);
+  }, [location.pathname]);
 
   const handleLogin = () => {
     setAuthenticated(true);
+    // after login, go to /admin
+    navigate('/admin', { replace: true });
   };
 
   if (loading) {
@@ -31,7 +35,26 @@ const AdminApp = () => {
     );
   }
 
-  return authenticated ? <Dashboard /> : <Login onLogin={handleLogin} />;
+  const RequireAuth = ({ children }) => (
+    isAuthenticated() ? children : <Navigate to="/admin/login" replace />
+  );
+
+  return (
+    <Routes>
+      <Route path="login" element={
+        authenticated ? <Navigate to="/admin" replace /> : <Login onLogin={handleLogin} />
+      } />
+
+      <Route index element={
+        <RequireAuth>
+          <Dashboard />
+        </RequireAuth>
+      } />
+
+      {/* Fallback */}
+      <Route path="*" element={<Navigate to="/admin" replace />} />
+    </Routes>
+  );
 };
 
 export default AdminApp;
