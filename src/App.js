@@ -1,10 +1,9 @@
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import AdminApp from "./admin/AdminApp";
-import ApiTest from "./components/ApiTest";
 
 // Configure Amplify
 import { Amplify } from 'aws-amplify';
@@ -14,17 +13,29 @@ Amplify.configure(awsconfig);
 function App() {
   return (
     <div className="App" style={{ paddingBottom: 40 }}>
-      <header className="App-header"></header>
+      {/* Minimal header with Login link */}
+      <header className="App-header" style={{
+        position: 'sticky', top: 0, zIndex: 1000,
+        background: 'transparent', display: 'flex', justifyContent: 'flex-end',
+        padding: '10px 16px'
+      }}>
+        <Link to="/admin/login" style={{
+          padding: '6px 12px',
+          border: '1px solid var(--accent, #d97706)',
+          borderRadius: 6,
+          color: 'var(--accent, #d97706)',
+          textDecoration: 'none',
+          fontSize: 14,
+          fontWeight: 600
+        }}>
+          Login
+        </Link>
+      </header>
 
       <Routes>
         <Route path="/" Component={Home} />
         <Route path="/admin/*" element={<AdminApp />} />
       </Routes>
-
-      {/* Dev/Test Panel for API */}
-      <div style={{ maxWidth: 900, margin: '0 auto', padding: 16 }}>
-        <ApiTest />
-      </div>
     </div>
   );
 }

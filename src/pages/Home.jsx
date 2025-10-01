@@ -169,51 +169,27 @@ export default function Home() {
   }
 
   return (
-    <div className="layout" style={{ paddingTop: usingFallbackData ? '50px' : '35px' }}>
-      {/* Data Status Banner */}
+    <div className="layout">
+      {/* Subtle Data Status Chip */}
       {usingFallbackData && (
-        <div style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          background: 'linear-gradient(135deg, #ff6b6b, #ffa500)',
-          color: 'white',
-          padding: '8px 16px',
-          textAlign: 'center',
-          fontSize: '0.9rem',
-          fontWeight: '600',
-          zIndex: 10000,
-          boxShadow: '0 2px 8px rgba(0,0,0,0.15)'
-        }}>
-          ⚠️ Displaying cached data - Content management system unavailable
-          <span style={{ marginLeft: '16px', fontSize: '0.8rem', opacity: 0.9 }}>
-            Visit <a href="/admin" style={{ color: 'white', textDecoration: 'underline' }}>/admin</a> to manage content
-          </span>
+        <div aria-label="Using cached data"
+          style={{
+            position: 'fixed',
+            top: 10,
+            left: 10,
+            background: 'rgba(255,193,7,0.15)', // subtle warning
+            border: '1px solid #ffd27a',
+            color: '#8a6d3b',
+            padding: '6px 10px',
+            fontSize: '12px',
+            borderRadius: 8,
+            zIndex: 1000,
+          }}>
+          Using cached data • <a href="/admin" style={{ color: '#8a6d3b', fontWeight: 600 }}>login</a> to update
         </div>
       )}
-      
-      {!usingFallbackData && (
-        <div style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          background: 'linear-gradient(135deg, #4CAF50, #45a049)',
-          color: 'white',
-          padding: '6px 16px',
-          textAlign: 'center',
-          fontSize: '0.85rem',
-          fontWeight: '500',
-          zIndex: 10000,
-          boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
-        }}>
-          ✅ Live data - Content managed via <a href="/admin" style={{ color: 'white', textDecoration: 'underline' }}>/admin</a>
-        </div>
-      )}
-      
-      {/* API Test Component - Temporary for testing */}
-      <ApiTest />
+
+      {/* remove test panel */}
       
       {/* scroll progress */}
       <div id="scrollbar" />
