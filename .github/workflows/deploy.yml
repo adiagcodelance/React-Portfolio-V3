@@ -23,9 +23,17 @@ jobs:
     - name: Install dependencies
       run: npm ci --legacy-peer-deps
 
+    - name: Prepare env for frontend
+      shell: bash
+      run: |
+        API_URL="${{ secrets.REACT_APP_API_URL }}"
+        if [ -z "$API_URL" ]; then
+          API_URL="https://l5aue4kmb1.execute-api.us-east-2.amazonaws.com/dev/api"
+        fi
+        echo "REACT_APP_API_URL=$API_URL" > .env.production
+        echo "Using REACT_APP_API_URL=$API_URL"
+
     - name: Build React app
-      env:
-        REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
       run: npm run build
 
     - name: Configure AWS credentials
