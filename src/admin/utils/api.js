@@ -52,6 +52,8 @@ export const auth = {
     
     if (response?.token) {
       setToken(response.token);
+      // Notify the app that auth state changed
+      window.dispatchEvent(new CustomEvent('authStateChanged'));
     }
     
     return response;
@@ -59,6 +61,8 @@ export const auth = {
   
   logout: () => {
     removeToken();
+    // Notify the app that auth state changed
+    window.dispatchEvent(new CustomEvent('authStateChanged'));
     // Return to public home page on logout
     window.location.href = '/';
   },
@@ -138,6 +142,26 @@ export const uploadApi = {
   uploadImage: async (file) => {
     const formData = new FormData();
     formData.append('image', file);
+    
+    const token = getToken();
+    const response = await fetch(`${API_BASE}/upload`, {
+      method: 'POST',
+      headers: {
+        ...(token && { Authorization: `Bearer ${token}` }),
+      },
+      body: formData,
+    });
+    
+    if (!response.ok) {
+      throw new Error('Upload failed');
+    }
+    
+    return response.json();
+  },
+  
+  uploadFile: async (file) => {
+    const formData = new FormData();
+    formData.append('file', file);
     
     const token = getToken();
     const response = await fetch(`${API_BASE}/upload`, {

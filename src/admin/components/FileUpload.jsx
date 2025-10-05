@@ -1,11 +1,12 @@
 import React, { useState, useRef } from 'react';
 import { uploadApi } from '../utils/api';
+import { FolderIcon, PdfIcon, FileIcon, LoaderIcon, CloseIcon } from './Icons';
 
 const FileUpload = ({ 
   onFilesUploaded, 
   existingFiles = [], 
   multiple = false,
-  accept = "image/*",
+  accept = "image/*,application/pdf",
   maxFiles = 5,
   title = "Upload Files"
 }) => {
@@ -31,7 +32,7 @@ const FileUpload = ({
     
     try {
       const uploadPromises = filesArray.map(async (file) => {
-        const response = await uploadApi.uploadImage(file);
+        const response = await uploadApi.uploadFile(file);
         return {
           name: file.name,
           url: response.url,
@@ -95,6 +96,14 @@ const FileUpload = ({
 
   return (
     <div style={{ marginBottom: '20px' }}>
+      <style>
+        {`
+          @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+          }
+        `}
+      </style>
       <h4 style={{ 
         color: 'var(--headline, #111827)', 
         marginBottom: '10px',
@@ -134,10 +143,13 @@ const FileUpload = ({
         {uploading ? (
           <div>
             <div style={{ 
-              fontSize: '24px', 
+              display: 'flex',
+              justifyContent: 'center',
               marginBottom: '10px',
               color: 'var(--accent, #d97706)'
-            }}>⏳</div>
+            }}>
+              <LoaderIcon size={24} style={{ animation: 'spin 1s linear infinite' }} />
+            </div>
             <p style={{ color: 'var(--text, #374151)', margin: 0 }}>
               Uploading...
             </p>
@@ -145,10 +157,13 @@ const FileUpload = ({
         ) : (
           <div>
             <div style={{ 
-              fontSize: '24px', 
+              display: 'flex',
+              justifyContent: 'center',
               marginBottom: '10px',
               color: 'var(--text-light, #6b7280)'
-            }}>📁</div>
+            }}>
+              <FolderIcon size={24} />
+            </div>
             <p style={{ 
               color: 'var(--text, #374151)', 
               margin: '0 0 5px 0',
@@ -161,7 +176,7 @@ const FileUpload = ({
               margin: 0,
               fontSize: '14px'
             }}>
-              {accept.includes('image') ? 'Images only' : 'Files'} • Max {maxFiles} files
+              {accept.includes('pdf') && accept.includes('image') ? 'Images & PDFs' : accept.includes('image') ? 'Images only' : 'Files'} • Max {maxFiles} files
             </p>
           </div>
         )}
@@ -216,9 +231,13 @@ const FileUpload = ({
                     alignItems: 'center',
                     justifyContent: 'center',
                     marginBottom: '8px',
-                    fontSize: '24px'
+                    color: 'var(--text-light, #6b7280)'
                   }}>
-                    📄
+                    {file.type === 'application/pdf' ? (
+                      <PdfIcon size={32} />
+                    ) : (
+                      <FileIcon size={32} />
+                    )}
                   </div>
                 )}
                 
@@ -258,14 +277,13 @@ const FileUpload = ({
                     backgroundColor: 'rgba(220, 53, 69, 0.9)',
                     color: 'white',
                     cursor: 'pointer',
-                    fontSize: '12px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center'
                   }}
                   title="Remove file"
                 >
-                  ×
+                  <CloseIcon size={12} />
                 </button>
               </div>
             ))}

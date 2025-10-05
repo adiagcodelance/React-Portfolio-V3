@@ -187,8 +187,8 @@ router.post('/forgot-password', [
     // Save reset token to user
     await User.update(
       { 
-        resetPasswordToken: resetToken,
-        resetPasswordExpires: resetExpires
+        resetToken: resetToken,
+        resetTokenExpiry: resetExpires
       },
       { where: { id: user.id } }
     );
@@ -259,8 +259,8 @@ router.post('/reset-password', [
     // Find user with valid reset token
     const user = await User.findOne({
       where: {
-        resetPasswordToken: token,
-        resetPasswordExpires: {
+        resetToken: token,
+        resetTokenExpiry: {
           [Op.gt]: new Date()
         }
       }
@@ -278,8 +278,8 @@ router.post('/reset-password', [
     await User.update(
       {
         password: hashedPassword,
-        resetPasswordToken: null,
-        resetPasswordExpires: null
+        resetToken: null,
+        resetTokenExpiry: null
       },
       { where: { id: user.id } }
     );

@@ -5,6 +5,19 @@ import ExperienceManager from '../components/ExperienceManager';
 import ProjectsManager from '../components/ProjectsManager';
 import CertificationsManager from '../components/CertificationsManager';
 import BulkOperationsManager from '../components/BulkOperationsManager';
+import { 
+  DashboardIcon, 
+  BriefcaseIcon, 
+  RocketIcon, 
+  AwardIcon, 
+  PackageIcon, 
+  ChevronLeftIcon, 
+  ChevronRightIcon,
+  GlobeIcon,
+  LogOutIcon,
+  PlusIcon,
+  SaveIcon
+} from '../components/Icons';
 
 const ModernDashboard = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -77,11 +90,11 @@ const ModernDashboard = () => {
   }
 
   const sidebarItems = [
-    { key: 'overview', label: 'Overview', icon: '📊' },
-    { key: 'experience', label: 'Experience', icon: '💼' },
-    { key: 'projects', label: 'Projects', icon: '🚀' },
-    { key: 'certifications', label: 'Certifications', icon: '🏆' },
-    { key: 'bulk', label: 'Backup & Import', icon: '📦' },
+    { key: 'overview', label: 'Overview', icon: <DashboardIcon size={16} /> },
+    { key: 'experience', label: 'Experience', icon: <BriefcaseIcon size={16} /> },
+    { key: 'projects', label: 'Projects', icon: <RocketIcon size={16} /> },
+    { key: 'certifications', label: 'Certifications', icon: <AwardIcon size={16} /> },
+    { key: 'bulk', label: 'Backup & Import', icon: <PackageIcon size={16} /> },
   ];
 
   return (
@@ -117,9 +130,9 @@ const ModernDashboard = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            fontSize: '16px'
+            color: 'white'
           }}>
-            ⚡
+            <DashboardIcon size={16} />
           </div>
           {sidebarOpen && (
             <h1 style={{
@@ -157,7 +170,7 @@ const ModernDashboard = () => {
                 justifyContent: sidebarOpen ? 'flex-start' : 'center'
               }}
             >
-              <span style={{ fontSize: '16px' }}>{item.icon}</span>
+              {item.icon}
               {sidebarOpen && <span>{item.label}</span>}
             </button>
           ))}
@@ -231,11 +244,10 @@ const ModernDashboard = () => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '16px',
                 color: '#6b7280'
               }}
             >
-              {sidebarOpen ? '◀' : '▶'}
+              {sidebarOpen ? <ChevronLeftIcon size={16} /> : <ChevronRightIcon size={16} />}
             </button>
             <h2 style={{
               margin: 0,
@@ -264,7 +276,7 @@ const ModernDashboard = () => {
                 gap: '8px'
               }}
             >
-              <span>🌐</span>
+              <GlobeIcon size={16} />
               View Site
             </Link>
             
@@ -284,7 +296,7 @@ const ModernDashboard = () => {
                 gap: '8px'
               }}
             >
-              <span>🚪</span>
+              <LogOutIcon size={16} />
               Logout
             </button>
           </div>
@@ -334,7 +346,7 @@ const OverviewContent = ({ experiences, projects, certifications, setActiveTab }
       value: experiences.length,
       subtitle: `${experiences.filter(e => e.isActive).length} active`,
       color: '#3b82f6',
-      icon: '💼',
+      icon: <BriefcaseIcon size={20} />,
       onClick: () => setActiveTab('experience')
     },
     {
@@ -342,7 +354,7 @@ const OverviewContent = ({ experiences, projects, certifications, setActiveTab }
       value: projects.length,
       subtitle: `${projects.filter(p => p.featured).length} featured, ${projects.filter(p => p.isActive).length} active`,
       color: '#10b981',
-      icon: '🚀',
+      icon: <RocketIcon size={20} />,
       onClick: () => setActiveTab('projects')
     },
     {
@@ -350,7 +362,7 @@ const OverviewContent = ({ experiences, projects, certifications, setActiveTab }
       value: certifications.length,
       subtitle: `${certifications.filter(c => c.isActive).length} active`,
       color: '#f59e0b',
-      icon: '🏆',
+      icon: <AwardIcon size={20} />,
       onClick: () => setActiveTab('certifications')
     }
   ];
@@ -372,7 +384,7 @@ const OverviewContent = ({ experiences, projects, certifications, setActiveTab }
           fontSize: '28px',
           fontWeight: '700'
         }}>
-          Welcome Back! 👋
+          Welcome Back!
         </h1>
         <p style={{
           margin: 0,
@@ -473,10 +485,10 @@ const OverviewContent = ({ experiences, projects, certifications, setActiveTab }
           gap: '16px'
         }}>
           {[
-            { label: 'Add Experience', icon: '➕', color: '#3b82f6', action: () => setActiveTab('experience') },
-            { label: 'Add Project', icon: '🆕', color: '#10b981', action: () => setActiveTab('projects') },
-            { label: 'Add Certification', icon: '🎯', color: '#f59e0b', action: () => setActiveTab('certifications') },
-            { label: 'Backup Data', icon: '💾', color: '#8b5cf6', action: () => setActiveTab('bulk') }
+            { label: 'Add Experience', icon: <PlusIcon size={18} />, color: '#3b82f6', action: () => setActiveTab('experience') },
+            { label: 'Add Project', icon: <PlusIcon size={18} />, color: '#10b981', action: () => setActiveTab('projects') },
+            { label: 'Add Certification', icon: <PlusIcon size={18} />, color: '#f59e0b', action: () => setActiveTab('certifications') },
+            { label: 'Backup Data', icon: <SaveIcon size={18} />, color: '#8b5cf6', action: () => setActiveTab('bulk') }
           ].map((action, index) => (
             <button
               key={index}
@@ -496,7 +508,7 @@ const OverviewContent = ({ experiences, projects, certifications, setActiveTab }
                 transition: 'all 0.2s ease'
               }}
             >
-              <span style={{ fontSize: '18px' }}>{action.icon}</span>
+              {action.icon}
               {action.label}
             </button>
           ))}
