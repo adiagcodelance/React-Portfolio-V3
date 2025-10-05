@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
+import ForgotPassword from './pages/ForgotPassword';
+import ResetPassword from './pages/ResetPassword';
+import ModernDashboard from './pages/ModernDashboard';
 import { isAuthenticated } from './utils/api';
 
 const AdminApp = () => {
@@ -44,10 +46,14 @@ const AdminApp = () => {
       <Route path="login" element={
         authenticated ? <Navigate to="/admin" replace /> : <Login onLogin={handleLogin} />
       } />
+      
+      <Route path="forgot-password" element={<ForgotPassword />} />
+      
+      <Route path="reset-password" element={<ResetPassword />} />
 
       <Route index element={
         <RequireAuth>
-          <Dashboard />
+          <ModernDashboard />
         </RequireAuth>
       } />
 

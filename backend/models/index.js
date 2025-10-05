@@ -29,6 +29,14 @@ const User = sequelize.define('User', {
     type: DataTypes.ENUM('admin', 'user'),
     defaultValue: 'user',
   },
+  resetPasswordToken: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  resetPasswordExpires: {
+    type: DataTypes.DATE,
+    allowNull: true,
+  },
 }, {
   timestamps: true,
 });
@@ -65,6 +73,17 @@ const Experience = sequelize.define('Experience', {
     },
     set(value) {
       this.setDataValue('bullets', JSON.stringify(value || []));
+    }
+  },
+  media: {
+    type: DataTypes.TEXT,
+    allowNull: true,
+    get() {
+      const rawValue = this.getDataValue('media');
+      return rawValue ? JSON.parse(rawValue) : [];
+    },
+    set(value) {
+      this.setDataValue('media', JSON.stringify(value || []));
     }
   },
   tags: {
@@ -162,6 +181,17 @@ const Certification = sequelize.define('Certification', {
   logo: {
     type: DataTypes.STRING,
     allowNull: true,
+  },
+  media: {
+    type: DataTypes.TEXT,
+    allowNull: true,
+    get() {
+      const rawValue = this.getDataValue('media');
+      return rawValue ? JSON.parse(rawValue) : [];
+    },
+    set(value) {
+      this.setDataValue('media', JSON.stringify(value || []));
+    }
   },
   tags: {
     type: DataTypes.TEXT,

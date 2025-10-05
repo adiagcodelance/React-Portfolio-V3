@@ -162,6 +162,20 @@ const Login = ({ onLogin }) => {
           >
             {loading ? 'Logging in…' : 'Login'}
           </button>
+          
+          <div style={{ textAlign: 'center', marginTop: '16px' }}>
+            <a
+              href="/admin/forgot-password"
+              style={{
+                color: 'var(--accent, #d97706)',
+                textDecoration: 'none',
+                fontSize: '13px',
+                fontWeight: '500'
+              }}
+            >
+              Forgot your password?
+            </a>
+          </div>
         </form>
       </div>
     </div>
