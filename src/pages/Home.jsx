@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Home.css";
 import Experience from "../components/Experience";
-import MediaThumbnails from "../components/MediaThumbnails";
+import CompactCertifications from "../components/CompactCertifications";
 import { api } from "../utils/api";
 
 export default function Home() {
@@ -282,24 +282,9 @@ export default function Home() {
           </ul>
         </section>
 
-        <section className="card certificates-grid" id="certificates" data-reveal>
+        <section className="card certificates-section" id="certificates" data-reveal>
             <h2 className="heading"><span className="idx"></span> Certifications</h2>
-            <ul className="grid">
-                {certifications.map((c,i)=>(
-                    <li key={i} className="tile">
-                      {c.logo && <img src={c.logo} alt={`${c.name} logo`} className="cert-logo" />}
-                      <MediaThumbnails media={c.media} maxDisplay={3} />
-                        <header>
-                            <h3>{c.name}</h3>
-                            <div className="links">
-                                {c.ext && <a href={c.ext} aria-label="External link" target="_blank" rel="noreferrer">↗</a>}
-                            </div>
-                        </header>
-                        <p className="muted">{c.desc}</p>
-                        <ul className="taglist">{c.tags?.map(t=> <li key={t}>{t}</li>)}</ul>
-                    </li>
-                ))}
-            </ul>
+            <CompactCertifications certifications={certifications} />
         </section>
 
         {/* contact */}
