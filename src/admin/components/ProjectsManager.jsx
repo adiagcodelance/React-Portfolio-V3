@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { projectsApi } from '../utils/api';
 import FileUpload from './FileUpload';
 import { PlusIcon, EditIcon, TrashIcon, EyeIcon, EyeOffIcon, SaveIcon, CloseIcon, RocketIcon } from './Icons';

@@ -160,23 +160,60 @@ export const uploadApi = {
   },
   
   uploadFile: async (file) => {
-    const formData = new FormData();
-    formData.append('file', file);
-    
     const token = getToken();
-    const response = await fetch(`${API_BASE}/upload`, {
-      method: 'POST',
-      headers: {
-        ...(token && { Authorization: `Bearer ${token}` }),
-      },
-      body: formData,
-    });
     
-    if (!response.ok) {
-      throw new Error('Upload failed');
+    // Try multipart upload first
+    try {
+      const formData = new FormData();
+      formData.append('file', file);
+      
+      const response = await fetch(`${API_BASE}/upload`, {
+        method: 'POST',
+        headers: {
+          ...(token && { Authorization: `Bearer ${token}` }),
+        },
+        body: formData,
+      });
+      
+      if (response.ok) {
+        return response.json();
+      }
+    } catch (error) {
+      console.log('Multipart upload failed, trying base64:', error.message);
     }
     
-    return response.json();
+    // Fallback to base64 upload
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = async () => {
+        try {
+          const base64Data = reader.result.split(',')[1]; // Remove data:type;base64, prefix
+          
+          const response = await fetch(`${API_BASE}/upload-base64`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              ...(token && { Authorization: `Bearer ${token}` }),
+            },
+            body: JSON.stringify({
+              fileName: file.name,
+              fileData: base64Data,
+              fileType: file.type
+            }),
+          });
+          
+          if (!response.ok) {
+            throw new Error('Base64 upload failed');
+          }
+          
+          resolve(response.json());
+        } catch (error) {
+          reject(error);
+        }
+      };
+      reader.onerror = () => reject(new Error('Failed to read file'));
+      reader.readAsDataURL(file);
+    });
   },
 };
 

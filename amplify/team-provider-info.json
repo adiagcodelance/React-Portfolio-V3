@@ -39,7 +39,7 @@
       "function": {
         "reactportfoliov365f5ecce": {
           "deploymentBucketName": "amplify-reactportfoliov3-dev-f66c9-deployment",
-          "s3Key": "amplify-builds/reactportfoliov365f5ecce-383842596972674a757a-build.zip"
+          "s3Key": "amplify-builds/reactportfoliov365f5ecce-53694666435161694a55-build.zip"
         }
       },
       "api": {

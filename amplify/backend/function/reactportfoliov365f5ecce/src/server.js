@@ -10,6 +10,7 @@ require('dotenv').config();
 // Import models and setup database
 const { sequelize } = require('./config/database');
 const models = require('./models');
+const { authenticateToken } = require('./middleware/auth');
 
 // Import routes
 const authRoutes = require('./routes/auth');
@@ -43,23 +44,23 @@ app.use(limiter);
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// Static file serving for uploads
-app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
+// File upload configuration for Lambda (using memory storage)
+const storage = multer.memoryStorage();
 
-// File upload configuration
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    const uploadPath = path.join(__dirname, '..', 'uploads');
-    if (!fs.existsSync(uploadPath)) {
-      fs.mkdirSync(uploadPath, { recursive: true });
-    }
-    cb(null, uploadPath);
-  },
-  filename: (req, file, cb) => {
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-    cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname));
-  }
-});
+// Alternative: If you want disk storage, use /tmp in Lambda
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     const uploadPath = '/tmp/uploads';
+//     if (!fs.existsSync(uploadPath)) {
+//       fs.mkdirSync(uploadPath, { recursive: true });
+//     }
+//     cb(null, uploadPath);
+//   },
+//   filename: (req, file, cb) => {
+//     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+//     cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname));
+//   }
+// });
 
 const upload = multer({ 
   storage: storage,
@@ -83,25 +84,97 @@ app.use('/api/projects', projectRoutes);
 app.use('/api/certifications', certificationRoutes);
 app.use('/api/bulk', bulkRoutes);
 
-// File upload route
-app.post('/api/upload', upload.single('file'), (req, res) => {
+// File upload route - try both 'file' and 'image' field names
+app.post('/api/upload', upload.any(), (req, res) => {
   try {
-    if (!req.file) {
+    // Handle multiple field names (files array from upload.any())
+    const file = req.files && req.files[0];
+    if (!file) {
       return res.status(400).json({ error: 'No file uploaded' });
     }
     
-    const fileUrl = `/uploads/${req.file.filename}`;
+    // Generate unique filename
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    const fileExtension = path.extname(file.originalname);
+    const filename = `file-${uniqueSuffix}${fileExtension}`;
+    
+    // Save to /tmp directory in Lambda
+    const uploadDir = '/tmp/uploads';
+    if (!fs.existsSync(uploadDir)) {
+      fs.mkdirSync(uploadDir, { recursive: true });
+    }
+    
+    const filePath = path.join(uploadDir, filename);
+    fs.writeFileSync(filePath, file.buffer);
+    
+    // For now, return a placeholder URL
+    // In production, you would upload to S3 and return the S3 URL
+    const fileUrl = `/uploads/${filename}`;
+    
     res.json({ 
       message: 'File uploaded successfully',
-      filename: req.file.filename,
+      filename: filename,
       url: fileUrl,
-      originalName: req.file.originalname,
-      size: req.file.size
+      originalName: file.originalname,
+      size: file.size,
+      type: file.mimetype
     });
   } catch (error) {
     console.error('Upload error:', error);
-    res.status(500).json({ error: 'Upload failed' });
+    res.status(500).json({ error: 'Upload failed: ' + error.message });
   }
+});
+
+// Alternative base64 upload endpoint
+app.post('/api/upload-base64', authenticateToken, (req, res) => {
+  try {
+    const { fileName, fileData, fileType } = req.body;
+    
+    if (!fileName || !fileData) {
+      return res.status(400).json({ error: 'fileName and fileData are required' });
+    }
+    
+    // Decode base64
+    const buffer = Buffer.from(fileData, 'base64');
+    
+    // Generate unique filename
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    const fileExtension = path.extname(fileName);
+    const filename = `file-${uniqueSuffix}${fileExtension}`;
+    
+    // Save to /tmp directory in Lambda
+    const uploadDir = '/tmp/uploads';
+    if (!fs.existsSync(uploadDir)) {
+      fs.mkdirSync(uploadDir, { recursive: true });
+    }
+    
+    const filePath = path.join(uploadDir, filename);
+    fs.writeFileSync(filePath, buffer);
+    
+    // Return file info
+    const fileUrl = `/uploads/${filename}`;
+    
+    res.json({ 
+      message: 'File uploaded successfully',
+      filename: filename,
+      url: fileUrl,
+      originalName: fileName,
+      size: buffer.length,
+      type: fileType || 'application/octet-stream'
+    });
+  } catch (error) {
+    console.error('Base64 upload error:', error);
+    res.status(500).json({ error: 'Upload failed: ' + error.message });
+  }
+});
+
+// Test upload endpoint for debugging
+app.post('/api/upload-test', (req, res) => {
+  res.json({ 
+    message: 'Upload test endpoint working',
+    headers: req.headers,
+    contentType: req.get('content-type')
+  });
 });
 
 // Health check endpoint
@@ -118,9 +191,14 @@ app.use((error, req, res, next) => {
   console.error('Global error handler:', error);
   
   if (error instanceof multer.MulterError) {
+    console.error('Multer error:', error.code, error.message);
     if (error.code === 'LIMIT_FILE_SIZE') {
       return res.status(400).json({ error: 'File too large' });
     }
+    if (error.code === 'LIMIT_UNEXPECTED_FILE') {
+      return res.status(400).json({ error: 'Unexpected field' });
+    }
+    return res.status(400).json({ error: error.message });
   }
   
   res.status(500).json({ 
