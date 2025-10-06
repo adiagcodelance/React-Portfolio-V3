@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./Home.css";
 import Experience from "../components/Experience";
+import MediaThumbnails from "../components/MediaThumbnails";
 import { api } from "../utils/api";
 
 export default function Home() {
   // Fallback data in case API fails
   const fallbackJobs = [
     { company: "DeepHealth", title: "Software Engineer", dates: "Jun 2024 – Present",
-      logo: "/dh_logo.png",
+      logo: "/dh_logo.png", media: [],
       bullets: ["Added additonal functionality to existing Build process and scripts.", 
         "Developed new features and solved bugs in existing RIS application requested by clients.",
         "Developed a Python based GUI to allow easy use of Build scripts, increasing number of developers capable of starting builds with limited training.",
@@ -15,7 +16,7 @@ export default function Home() {
         "Designed development architecture for ScriptSender source code, allowing easy maintenace and development of ancillary services used with RIS."], 
         tags: ["C#", "SQL", "Java", "Python", "React", "Visual Studio", "Visual Studio Code"] },
     { company: "Sunly Energy", title: "Data Analyst & IT Assistant", dates: "May 2023 – Jun 2024",
-      logo: "Sunly_Yellow-01 (2).png",
+      logo: "Sunly_Yellow-01 (2).png", media: [],
       bullets: ["Managed for tech onboarding/offboarding, hardware/software setup, and provided IT support for headquarters and remote franchise operations.",
         "Responsible of tech procurement of both hardware and software to ensure seamless operations.",
         "Continuous Salesforce.com data administration, handling mass data uploads and deletions to maintain data integrity.",
@@ -26,7 +27,7 @@ export default function Home() {
         "Collaborated with a marketing agency to enhancement of website design, focusing on improvement of user experience, SEO (Search Engine Optimization), development and deployment of new pages for increased online visibility."
     ], tags: ["HTML5", "CSS", "React", "SquareSpace", "Salesforce.com", "OpenSolar", "Postman", "IT"] },
     { company:"The Spice Store Inc.", title: "Operations Associate", dates: "Nov 2018 - Jun 2024",
-      logo: "/the spice store final.jpg",
+      logo: "/the spice store final.jpg", media: [],
         bullets: ["Managed salesfloor operations, procurement, logistics, pricing, merchandising, and reporting.",
             "Provided IT setup for hardware and POS software (RetailMagic) setup and support, ensuring the smooth integration and functionality of technology in day-to-day operations.",
             "Initiated development of a website for the company.",
@@ -47,10 +48,10 @@ export default function Home() {
   ];
 
   const fallbackCertifications = [
-    { logo: "/datacamp.png", name: "Artifical Intelligence (AI)", desc: "Being able to identify the uses cases for different sub-domains of AI. Being able to explain Generative AI and common terminology of the domain. Being able to construct simple prompts for generative AI tools and being able to explain the ethical considerations that apply to AI and generative AI solutions.", tags: ["AI", "AI Architecture", "Machine Learning", "Generative AI"], ext: "https://www.datacamp.com/skill-verification/AIF0028742102106" },
-    { logo: "/datacamp.png", name: "SQL Associate", desc: "At the associate level, data management tasks relate mostly to data cleaning and processing. This includes identifying data quality issues, performing transformations and being able to work with data from multiple sources, typically multiple database tables. For the large part, these tasks are performed in SQL. This skill was tested through a hands-on SQL coding challenge. The individual was required to code specific cleaning and transformation tasks that can be applied to a given data source. This candidate was comfortable in calculatings metrics to effectively report characteristics of data and relationships between features using PostgreSQL. This skill was primarily tested through a hands-on SQL coding challenge.", tags: ["SQL", "MySQL", "PostegreSQL", "Database Management"], ext: "https://www.datacamp.com/certificate/SQA0013747867975" },
-    { logo: "", name: "Canon Beginner Photography Course", desc: "Completed Canon's online beginner photography course covering fundamentals of photography including exposure, composition, and camera settings.", tags: ["Photography", "Camera Settings", "Composition"], ext: "#" },
-    { logo: "", name: "Microsoft Office Suite", desc: "Completed Microsoft Office Suite training covering Word, Excel, PowerPoint, and Outlook.", tags: ["Microsoft Word", "Microsoft Excel", "Microsoft PowerPoint", "Microsoft Outlook"], ext: "#" },
+    { logo: "/datacamp.png", media: [], name: "Artifical Intelligence (AI)", desc: "Being able to identify the uses cases for different sub-domains of AI. Being able to explain Generative AI and common terminology of the domain. Being able to construct simple prompts for generative AI tools and being able to explain the ethical considerations that apply to AI and generative AI solutions.", tags: ["AI", "AI Architecture", "Machine Learning", "Generative AI"], ext: "https://www.datacamp.com/skill-verification/AIF0028742102106" },
+    { logo: "/datacamp.png", media: [], name: "SQL Associate", desc: "At the associate level, data management tasks relate mostly to data cleaning and processing. This includes identifying data quality issues, performing transformations and being able to work with data from multiple sources, typically multiple database tables. For the large part, these tasks are performed in SQL. This skill was tested through a hands-on SQL coding challenge. The individual was required to code specific cleaning and transformation tasks that can be applied to a given data source. This candidate was comfortable in calculatings metrics to effectively report characteristics of data and relationships between features using PostgreSQL. This skill was primarily tested through a hands-on SQL coding challenge.", tags: ["SQL", "MySQL", "PostegreSQL", "Database Management"], ext: "https://www.datacamp.com/certificate/SQA0013747867975" },
+    { logo: "", media: [], name: "Canon Beginner Photography Course", desc: "Completed Canon's online beginner photography course covering fundamentals of photography including exposure, composition, and camera settings.", tags: ["Photography", "Camera Settings", "Composition"], ext: "#" },
+    { logo: "", media: [], name: "Microsoft Office Suite", desc: "Completed Microsoft Office Suite training covering Word, Excel, PowerPoint, and Outlook.", tags: ["Microsoft Word", "Microsoft Excel", "Microsoft PowerPoint", "Microsoft Outlook"], ext: "#" },
   ];
 
   // State for API data
@@ -77,7 +78,10 @@ export default function Home() {
         
         if (hasValidExperience && hasValidProjects && hasValidCertifications) {
           // All data is valid, update everything and mark as using API data
-          setJobs(experienceData);
+          setJobs(experienceData.map(exp => ({
+            ...exp,
+            media: exp.media || []
+          })));
           setOtherProjects(projectsData.map(project => ({
             name: project.name,
             desc: project.description,
@@ -87,6 +91,7 @@ export default function Home() {
           })));
           setCertifications(certificationsData.map(cert => ({
             logo: cert.logo || '',
+            media: cert.media || [],
             name: cert.name,
             desc: cert.description,
             tags: cert.tags || [],
@@ -283,6 +288,7 @@ export default function Home() {
                 {certifications.map((c,i)=>(
                     <li key={i} className="tile">
                       {c.logo && <img src={c.logo} alt={`${c.name} logo`} className="cert-logo" />}
+                      <MediaThumbnails media={c.media} maxDisplay={3} />
                         <header>
                             <h3>{c.name}</h3>
                             <div className="links">

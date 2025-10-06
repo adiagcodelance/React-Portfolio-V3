@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Experience.css"; // keep your existing styling
+import MediaThumbnails from "./MediaThumbnails";
 
 
 export default function Experience({ jobs = [] }) {
@@ -37,6 +38,7 @@ return (
 {active.logo && <img src={active.logo} alt={`${active.company} logo`} className="exp-logo" />} {active.company} — <span>{active.title}</span>
 </h3>
 <em className="dates">{active.dates}</em>
+<MediaThumbnails media={active.media} maxDisplay={4} />
 <ul className="contributions">
 {active.bullets?.map((b,k)=> <li key={k}>{b}</li>)}
 </ul>
