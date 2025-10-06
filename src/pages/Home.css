@@ -600,7 +600,54 @@ h1,h2,h3{color:var(--text-strong); margin:0 0 .3rem}
 .side-rail a{color:var(--text-muted); text-decoration:none; transition:color .2s, transform .2s}
 .side-rail a:hover{color:var(--accent); transform:translateY(-2px)}
 .rail-line{width:1px; height:92px; margin:10px auto 0; background:var(--border-soft)}
-.right-rail .email{writing-mode:vertical-rl; letter-spacing:.12em}
+
+/* Left rail icons */
+.left-rail svg {
+  display: block;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.left-rail a:hover svg {
+  opacity: 1;
+}
+
+/* Right rail content */
+.right-rail-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.right-rail .email {
+  writing-mode: vertical-rl;
+  letter-spacing: .12em;
+}
+.resume-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  writing-mode: vertical-rl;
+  letter-spacing: .08em;
+  padding: 8px;
+  border: 1px solid var(--border-soft);
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  transition: all 0.2s;
+}
+.resume-link:hover {
+  background: color-mix(in srgb, var(--accent) 15%, transparent);
+  border-color: var(--accent);
+}
+.resume-link svg {
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+.resume-link:hover svg {
+  opacity: 1;
+}
 
 /* ============== Reveal + a11y ============== */
 [data-reveal]{opacity:0; transform:translateY(12px); transition:opacity .5s ease, transform .5s ease}

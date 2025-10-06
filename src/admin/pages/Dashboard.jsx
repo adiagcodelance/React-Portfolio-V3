@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { auth, experienceApi, projectsApi, certificationsApi, bulkApi } from '../utils/api';
+import ResumeManager from '../components/ResumeManager';
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -130,6 +131,7 @@ const Dashboard = () => {
             { key: 'experience', label: 'Experience' },
             { key: 'projects', label: 'Projects' },
             { key: 'certifications', label: 'Certifications' },
+            { key: 'resume', label: 'Resume' },
             { key: 'bulk', label: 'Backup & Import' },
           ].map((tab) => (
             <button
@@ -243,6 +245,10 @@ const Dashboard = () => {
 
         {activeTab === 'certifications' && (
           <CertificationsManager certifications={certifications} onUpdate={loadData} />
+        )}
+
+        {activeTab === 'resume' && (
+          <ResumeManager />
         )}
 
         {activeTab === 'bulk' && (

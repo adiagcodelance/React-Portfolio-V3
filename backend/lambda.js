@@ -47,7 +47,7 @@ app.use(limiter);
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// S3 file upload configuration
+// S3 file upload configuration for images
 const upload = multer({
   storage: multer.memoryStorage(),
   limits: {
@@ -59,6 +59,22 @@ const upload = multer({
       cb(null, true);
     } else {
       cb(new Error('Only image files are allowed!'), false);
+    }
+  }
+});
+
+// S3 file upload configuration for resume (PDF files)
+const resumeUpload = multer({
+  storage: multer.memoryStorage(),
+  limits: {
+    fileSize: 10 * 1024 * 1024, // 10MB limit for PDF
+  },
+  fileFilter: (req, file, cb) => {
+    // Allow only PDF files for resume
+    if (file.mimetype === 'application/pdf') {
+      cb(null, true);
+    } else {
+      cb(new Error('Only PDF files are allowed for resume!'), false);
     }
   }
 });
@@ -100,6 +116,103 @@ app.post('/api/upload', upload.single('image'), async (req, res) => {
   } catch (error) {
     console.error('Upload error:', error);
     res.status(500).json({ error: 'Upload failed' });
+  }
+});
+
+// Resume upload route (admin only)
+app.post('/api/admin/resume', resumeUpload.single('resume'), async (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ error: 'No resume file uploaded' });
+    }
+    
+    // Use a fixed key for the resume so we can easily replace it
+    const fileName = 'resume.pdf';
+    
+    const uploadParams = {
+      Bucket: UPLOADS_BUCKET,
+      Key: fileName,
+      Body: req.file.buffer,
+      ContentType: req.file.mimetype,
+      ACL: 'public-read'
+    };
+
+    const result = await s3.upload(uploadParams).promise();
+    
+    res.json({
+      message: 'Resume uploaded successfully',
+      filename: fileName,
+      url: result.Location,
+      originalName: req.file.originalname,
+      size: req.file.size
+    });
+  } catch (error) {
+    console.error('Resume upload error:', error);
+    res.status(500).json({ error: 'Resume upload failed' });
+  }
+});
+
+// Resume download route (public)
+app.get('/api/resume', async (req, res) => {
+  try {
+    const getObjectParams = {
+      Bucket: UPLOADS_BUCKET,
+      Key: 'resume.pdf'
+    };
+
+    // Check if resume exists
+    try {
+      await s3.headObject(getObjectParams).promise();
+    } catch (headError) {
+      if (headError.code === 'NotFound') {
+        return res.status(404).json({ error: 'Resume not found' });
+      }
+      throw headError;
+    }
+
+    // Get the resume file
+    const result = await s3.getObject(getObjectParams).promise();
+    
+    // Set appropriate headers for PDF viewing/download
+    res.set({
+      'Content-Type': 'application/pdf',
+      'Content-Disposition': 'inline; filename="Aditya_Agrawal_Resume.pdf"',
+      'Content-Length': result.ContentLength
+    });
+    
+    res.send(result.Body);
+  } catch (error) {
+    console.error('Resume download error:', error);
+    res.status(500).json({ error: 'Resume download failed' });
+  }
+});
+
+// Resume info route (public) - returns resume metadata
+app.get('/api/resume/info', async (req, res) => {
+  try {
+    const getObjectParams = {
+      Bucket: UPLOADS_BUCKET,
+      Key: 'resume.pdf'
+    };
+
+    try {
+      const headResult = await s3.headObject(getObjectParams).promise();
+      
+      res.json({
+        exists: true,
+        lastModified: headResult.LastModified,
+        size: headResult.ContentLength,
+        downloadUrl: '/api/resume'
+      });
+    } catch (headError) {
+      if (headError.code === 'NotFound') {
+        return res.json({ exists: false });
+      }
+      throw headError;
+    }
+  } catch (error) {
+    console.error('Resume info error:', error);
+    res.status(500).json({ error: 'Failed to get resume info' });
   }
 });
 
