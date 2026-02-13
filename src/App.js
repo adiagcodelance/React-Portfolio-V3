@@ -4,6 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState, useEffect } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
+import Valentine from "./pages/Valentine";
+import ValentineCelebration from "./pages/ValentineCelebration";
 import AdminApp from "./admin/AdminApp";
 import { isAuthenticated } from "./admin/utils/api";
 
@@ -75,6 +77,8 @@ function App() {
 
       <Routes>
         <Route path="/" Component={Home} />
+        <Route path="/valentine" element={<Valentine />} />
+        <Route path="/valentine/celebration" element={<ValentineCelebration />} />
         <Route path="/admin/*" element={<AdminApp />} />
       </Routes>
     </div>

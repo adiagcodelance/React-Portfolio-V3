@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Home.css";
 import Experience from "../components/Experience";
 import CompactCertifications from "../components/CompactCertifications";
@@ -60,6 +61,26 @@ export default function Home() {
   const [certifications, setCertifications] = useState(fallbackCertifications);
   const [loading, setLoading] = useState(false);
   const [usingFallbackData, setUsingFallbackData] = useState(true);
+
+  // Secret Valentine easter egg
+  const navigate = useNavigate();
+  const [secretClicks, setSecretClicks] = useState(0);
+  const [showHeartBurst, setShowHeartBurst] = useState(false);
+
+  const handleSecretClick = useCallback(() => {
+    const newCount = secretClicks + 1;
+    setSecretClicks(newCount);
+    
+    if (newCount >= 5) {
+      setShowHeartBurst(true);
+      setTimeout(() => {
+        navigate('/valentine');
+      }, 800);
+    }
+    
+    // Reset after 2 seconds of no clicking
+    setTimeout(() => setSecretClicks(0), 2000);
+  }, [secretClicks, navigate]);
 
   // Try to load data from API, but keep fallback data if it fails
   useEffect(() => {
@@ -174,6 +195,24 @@ export default function Home() {
 
   return (
     <div className="layout">
+      {/* Secret heart burst animation */}
+      {showHeartBurst && (
+        <div className="heart-burst-overlay">
+          {[...Array(30)].map((_, i) => (
+            <span
+              key={i}
+              className="burst-heart"
+              style={{
+                left: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 0.3}s`,
+                fontSize: `${20 + Math.random() * 30}px`
+              }}
+            >
+              {['💕', '💗', '💖', '💝', '❤️'][Math.floor(Math.random() * 5)]}
+            </span>
+          ))}
+        </div>
+      )}
       {/* Subtle Data Status Chip */}
       {usingFallbackData && (
         <div aria-label="Using cached data"
@@ -201,11 +240,14 @@ export default function Home() {
       <nav className="breadcrumb-nav" aria-label="Section navigation">
          <div className="hero-wrap">
     <div>
-        {/* Ghibli icon above name */}
+      {/* Ghibli icon above name - click 5x for a surprise! */}
       <img
-        src="/adi_g.png"   // <-- change to your icon path if different
+        src="/adi_g.png"
         alt="Aditya avatar"
-        className="hero-icon"
+        className={`hero-icon ${secretClicks > 0 ? 'secret-wiggle' : ''}`}
+        onClick={handleSecretClick}
+        style={{ cursor: 'pointer' }}
+        title={secretClicks > 0 ? `${5 - secretClicks} more...` : undefined}
       />
       <h3 className="hero-name">Aditya Agrawal</h3>
 
