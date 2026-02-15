@@ -1,6 +1,27 @@
 const { Sequelize } = require('sequelize');
 const path = require('path');
-require('dotenv').config();
+
+// Load dotenv only if available (not needed in production/serverless)
+try {
+  require('dotenv').config();
+} catch (e) {
+  // Ignore
+}
+
+// Use Neon serverless driver in production
+let neonConfig = {};
+if (process.env.NODE_ENV === 'production' || process.env.VERCEL) {
+  try {
+    const { neonConfig: nc } = require('@neondatabase/serverless');
+    const ws = require('ws');
+    nc.webSocketConstructor = ws;
+    neonConfig = {
+      dialectModule: require('@neondatabase/serverless'),
+    };
+  } catch (e) {
+    // Neon serverless not available, use regular pg
+  }
+}
 
 let sequelize;
 
@@ -15,6 +36,7 @@ if (process.env.DATABASE_URL) {
       },
     },
     logging: false,
+    ...neonConfig,
   });
 // Option 2: Use individual env vars
 } else if (process.env.DB_DIALECT === 'postgres') {
@@ -35,13 +57,16 @@ if (process.env.DATABASE_URL) {
       logging: false,
     }
   );
-// Option 3: SQLite for local development
-} else {
+// Option 3: SQLite for local development only
+} else if (process.env.NODE_ENV !== 'production') {
   sequelize = new Sequelize({
     dialect: 'sqlite',
     storage: path.join(__dirname, '..', 'data.sqlite'),
     logging: false,
   });
+} else {
+  // In production, DATABASE_URL must be set
+  throw new Error('DATABASE_URL environment variable is required in production');
 }
 
 module.exports = { sequelize };

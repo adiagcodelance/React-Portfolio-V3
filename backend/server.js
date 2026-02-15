@@ -5,7 +5,12 @@ const rateLimit = require('express-rate-limit');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
-require('dotenv').config();
+// Load dotenv only if .env exists (not in production/serverless)
+try {
+  require('dotenv').config();
+} catch (e) {
+  // Ignore - env vars are provided by Vercel in production
+}
 
 // Import models and setup database
 const { sequelize } = require('./config/database');
@@ -35,8 +40,23 @@ const limiter = rateLimit({
 app.use(helmet({
   contentSecurityPolicy: false, // Disable CSP for development
 }));
+// CORS configuration
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://www.aditya-folio.com',
+  'https://aditya-folio.com',
+  process.env.FRONTEND_URL?.trim(),
+].filter(Boolean);
+
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: function(origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    return callback(null, false);
+  },
   credentials: true,
 }));
 app.use(limiter);

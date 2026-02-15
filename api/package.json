@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "@neondatabase/serverless": "^0.9.0",
+    "ws": "^8.16.0",
+    "sequelize": "^6.37.7",
+    "express": "^4.21.2",
+    "cors": "^2.8.5",
+    "helmet": "^8.1.0",
+    "express-rate-limit": "^8.1.0",
+    "express-validator": "^7.2.1",
+    "bcryptjs": "^3.0.2",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2"
+  }
+}
