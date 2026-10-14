@@ -54,11 +54,11 @@ const hardcodedJobs = [
 
 const hardcodedProjects = [
   { 
-    name: "Folio", 
-    description: "IOS App, built to allow cross functionality between built in calendar tool and a notes system for clear organization.",
-    tags: ["Swift", "Xcode", "Apple"], 
-    githubUrl: "https://github.com/adiagcodelance/Folio", 
-    externalUrl: "https://github.com/adiagcodelance/Folio",
+    name: "Dayweave",
+    description: "A calm productivity system that brings tasks, calendar events, notes, and intelligent capture together across iPhone and iPad.",
+    tags: ["iOS", "iPadOS", "Productivity", "AI"],
+    githubUrl: "",
+    externalUrl: "https://apps.apple.com/ca/app/dayweave-planner-tasks/id6790466640",
     featured: false,
     order: 0
   },

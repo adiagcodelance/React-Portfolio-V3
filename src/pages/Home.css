@@ -179,6 +179,29 @@ body {
 .project-copy .tag-list { margin: 1.25rem 0; }
 .project-copy > a { display: inline-flex; gap: 0.45rem; align-items: center; border-bottom: 1px solid var(--portfolio-ink); padding-bottom: 0.25rem; font-size: 0.76rem; font-weight: 600; }
 
+.dayweave-gallery {
+  min-height: 410px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.85rem;
+  align-items: end;
+  padding: 2rem 1.5rem 0;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(199, 101, 51, 0.13), transparent 35%),
+    var(--portfolio-soft);
+}
+
+.dayweave-gallery img {
+  width: 100%;
+  display: block;
+  border: 1px solid rgba(30, 40, 35, 0.12);
+  border-radius: 18px 18px 0 0;
+  box-shadow: 0 18px 38px rgba(30, 40, 35, 0.11);
+}
+
+.dayweave-gallery img:nth-child(2),
+.dayweave-gallery img:nth-child(4) { transform: translateY(1.5rem); }
+
 .folio-art { min-height: 410px; display: grid; place-items: center; position: relative; }
 .phone-frame { width: 185px; height: 345px; padding: 2.5rem 1.1rem 1rem; border: 1px solid var(--portfolio-ink); background: var(--portfolio-bg); transform: rotate(-3deg); }
 .phone-frame small { color: var(--portfolio-accent); font: 0.58rem "JetBrains Mono Local", monospace; }
@@ -241,6 +264,9 @@ body {
   .project-card:first-child { grid-column: auto; }
   .project-card:first-child .project-art,
   .folio-art { min-height: 320px; }
+  .dayweave-gallery { min-height: 320px; grid-template-columns: repeat(3, 1fr); padding: 1.25rem 0.75rem 0; gap: 0.5rem; }
+  .dayweave-gallery img { border-radius: 12px 12px 0 0; }
+  .dayweave-gallery img:nth-child(4) { display: none; }
   .phone-frame { transform: none; width: 150px; height: 280px; padding-top: 2rem; }
   .art-caption { right: 4%; bottom: 8%; }
   .credential-list article { grid-template-columns: 1fr 38px; gap: 0.55rem; }

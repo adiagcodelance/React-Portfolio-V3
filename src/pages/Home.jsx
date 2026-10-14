@@ -49,11 +49,11 @@ const fallbackJobs = [
 
 const fallbackProjects = [
   {
-    name: "Folio",
-    desc: "An iOS app designed to connect a built-in calendar with a notes system for clearer day-to-day organization.",
-    tags: ["Swift", "Xcode", "Apple"],
-    gh: "https://github.com/adiagcodelance/Folio",
-    ext: "https://github.com/adiagcodelance/Folio",
+    name: "Dayweave",
+    desc: "A calm productivity system that brings tasks, calendar events, notes, and intelligent capture together across iPhone and iPad.",
+    tags: ["iOS", "iPadOS", "Productivity", "AI"],
+    gh: "",
+    ext: "https://apps.apple.com/ca/app/dayweave-planner-tasks/id6790466640",
   },
   {
     name: "Telling Stories",
@@ -68,6 +68,25 @@ const fallbackProjects = [
     tags: ["Flutter", "Java", "Android"],
     gh: "https://github.com/adiagcodelance/Assignment-Planner-",
     ext: "https://github.com/adiagcodelance/Assignment-Planner-",
+  },
+];
+
+const dayweaveScreenshots = [
+  {
+    src: "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/7b/4a/fd/7b4afd2a-b7cd-36e5-7242-efb6c0f853c3/01-everything-in-one-place.png/640x960bb.jpg",
+    alt: "Dayweave overview showing tasks, events, and notes in one place",
+  },
+  {
+    src: "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/4a/80/d8/4a80d87d-5618-4549-a239-5d414326d4b4/02-smart-capture.png/640x960bb.jpg",
+    alt: "Dayweave intelligent capture screen",
+  },
+  {
+    src: "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/ba/86/9a/ba869a20-f039-b6b5-f75c-a1c8fd212fdc/03-plan-your-day.png/640x960bb.jpg",
+    alt: "Dayweave daily planning screen",
+  },
+  {
+    src: "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/7e/f5/21/7ef52184-abca-0ab8-c208-e55cdac72839/04-see-your-week.png/640x960bb.jpg",
+    alt: "Dayweave seven-day weekly timeline",
   },
 ];
 
@@ -101,14 +120,23 @@ const fallbackCertifications = [
 ];
 
 const normalizeProjects = (items) =>
-  items.map((project) => ({
-    name: project.name,
-    desc: project.description || project.desc,
-    tags: project.tags || [],
-    gh: project.githubUrl || project.gh,
-    ext: project.externalUrl || project.ext,
-    media: project.media || [],
-  }));
+  items.map((project) => {
+    const isDayweave = ["folio", "dayweave", "dayweave: planner & tasks"]
+      .includes(project.name?.trim().toLowerCase());
+
+    return {
+      name: isDayweave ? "Dayweave" : project.name,
+      desc: isDayweave
+        ? "A calm productivity system that brings tasks, calendar events, notes, and intelligent capture together across iPhone and iPad."
+        : project.description || project.desc,
+      tags: isDayweave ? ["iOS", "iPadOS", "Productivity", "AI"] : project.tags || [],
+      gh: isDayweave ? "" : project.githubUrl || project.gh,
+      ext: isDayweave
+        ? "https://apps.apple.com/ca/app/dayweave-planner-tasks/id6790466640"
+        : project.externalUrl || project.ext,
+      media: isDayweave ? [] : project.media || [],
+    };
+  });
 
 const normalizeCertifications = (items) =>
   items.map((certification) => ({
@@ -133,21 +161,23 @@ function TagList({ tags = [] }) {
 }
 
 function ProjectArtwork({ index, project }) {
-  if (project.media?.[0]?.url) {
-    return <img className="project-media" src={project.media[0].url} alt="" loading="lazy" />;
-  }
-
-  if (index === 0) {
+  if (project.name === "Dayweave") {
     return (
-      <div className="folio-art" aria-hidden="true">
-        <div className="phone-frame">
-          <small>MON 18</small><strong>Today</strong>
-          <div className="calendar-item"><span>9:00</span><b>Project planning</b></div>
-          <div className="notes-item">Notes connected to your day</div>
-        </div>
-        <div className="art-caption">Calendar + notes<br /><strong>in one focused flow</strong></div>
+      <div className="dayweave-gallery">
+        {dayweaveScreenshots.map((screenshot, screenshotIndex) => (
+          <img
+            key={screenshot.src}
+            src={screenshot.src}
+            alt={screenshot.alt}
+            loading={screenshotIndex === 0 ? "eager" : "lazy"}
+          />
+        ))}
       </div>
     );
+  }
+
+  if (project.media?.[0]?.url) {
+    return <img className="project-media" src={project.media[0].url} alt="" loading="lazy" />;
   }
 
   if (index === 1) {
@@ -296,11 +326,11 @@ export default function Home() {
               <article className={`project-card project-${index + 1}`} key={project.name}>
                 <div className="project-art"><ProjectArtwork index={index} project={project} /></div>
                 <div className="project-copy">
-                  <p className="project-type">{index === 0 ? "iOS application" : index === 1 ? "University capstone" : "Android application"}</p>
+                  <p className="project-type">{project.name === "Dayweave" ? "Live on the App Store" : index === 1 ? "University capstone" : "Android application"}</p>
                   <h3>{project.name}</h3>
                   <p>{project.desc}</p>
                   <TagList tags={project.tags} />
-                  {(project.ext || project.gh) && <a href={project.ext || project.gh} target="_blank" rel="noreferrer">View project <ArrowIcon /></a>}
+                  {(project.ext || project.gh) && <a href={project.ext || project.gh} target="_blank" rel="noreferrer">{project.name === "Dayweave" ? "View on the App Store" : "View project"} <ArrowIcon /></a>}
                 </div>
               </article>
             ))}
